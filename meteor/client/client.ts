@@ -23,6 +23,8 @@ class NavActiveChecker {
 var homeActiveChecker = new NavActiveChecker(false);
 var aboutActiveChecker = new NavActiveChecker(false);
 
+declare var ItemsController;
+
 Router.map(function() {
 
     this.route('home', {
@@ -72,9 +74,6 @@ Router.map(function() {
     });
 
 });
-
-
-declare var ItemsController;
 
 Template['headerTpl'].helpers({
 

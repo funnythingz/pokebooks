@@ -1,5 +1,0 @@
-{
-  "very_effective": ["grass", "ice", "steel"],
-  "not_too_effective": ["fire", "water", "rock", "dragon"],
-  "no_effect": null
-}
