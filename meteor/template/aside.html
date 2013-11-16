@@ -1,0 +1,12 @@
+<template name="asideTpl">
+
+  <aside class="container">
+    <nav>
+      <ul class="nav nav-tabs">
+        <li{{#if homeActive}} class="active"{{/if}}><a href="{{pathFor 'home'}}">Home</a></li>
+        <li{{#if aboutActive}} class="active"{{/if}}><a href="{{pathFor 'about'}}">About</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+</template>

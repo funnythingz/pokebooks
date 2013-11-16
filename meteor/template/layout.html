@@ -1,5 +1,11 @@
 <template name="layout">
 
+  {{yield 'header'}}
+
+  {{yield 'aside'}}
+
   {{yield}}
+
+  {{yield 'footer'}}
 
 </template>
