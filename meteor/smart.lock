@@ -3,7 +3,9 @@
   "dependencies": {
     "basePackages": {
       "bootstrap-3": {},
-      "iron-router": {}
+      "iron-router": {},
+      "typescript-compiler": {},
+      "typescript-libs": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -15,6 +17,16 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.1",
         "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+      },
+      "typescript-compiler": {
+        "git": "https://github.com/orefalo/meteor-typescript-compiler.git",
+        "tag": "v0.7.7.1",
+        "commit": "325301b9f66d085f873b9a138717d023c6a19bac"
+      },
+      "typescript-libs": {
+        "git": "https://github.com/orefalo/meteor-typescript-libs.git",
+        "tag": "v0.1.11",
+        "commit": "fd15fc164fa491c1d8a785602829b7895482d29a"
       }
     }
   }

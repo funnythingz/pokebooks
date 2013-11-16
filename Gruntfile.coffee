@@ -3,17 +3,9 @@ module.exports = (grunt)->
     pkg: grunt.file.readJSON('package.json')
 
     concat:
-      app:
+      ddd:
         src: ['src/ddd/**/*.js']
         dest: 'build/pokedex.js'
-
-      client:
-        src: ['src/client/**/*.js']
-        dest: 'meteor/client/client.js'
-
-      server:
-        src: ['src/server/**/*.js']
-        dest: 'meteor/server/server.js'
 
       test:
         src: ['build/pokedex.js', 'tests/**/*.js']
@@ -44,19 +36,9 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
-      html:
-        files: ['template/**/*.html']
-        tasks: ['clean', 'copy']
-        options:
-          atBegin: true
-
-    clean: ['src/**/*.js', 'tests/**/*.js', 'meteor/template/**/*.html']
+    clean: ['src/**/*.js', 'tests/**/*.js']
 
     copy:
-      template:
-        src:  'template/**/*'
-        dest: 'meteor/'
-
       app:
         src:  'build/pokedex.js'
         dest: 'meteor/pokedex.js'
