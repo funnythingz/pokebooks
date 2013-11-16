@@ -1,0 +1,36 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0, maximum-scale=10">
+  <title>POKEDEX</title>
+</head>
+
+<body></body>
+
+<template name="layout">
+  {{yield 'header'}}
+  {{yield 'aside'}}
+  {{yield}}
+  {{yield 'footer'}}
+</template>
+
+<template name="headerTpl">
+  <header class="container">
+    <h1 class="logo">{{title}}</h1>
+  </header>
+</template>
+
+<template name="asideTpl">
+  <aside class="container">
+    <nav>
+      <ul class="nav nav-tabs">
+        <li{{#if homeActive}} class="active"{{/if}}><a href="{{pathFor 'home'}}">Home</a></li>
+        <li{{#if aboutActive}} class="active"{{/if}}><a href="{{pathFor 'about'}}">About</a></li>
+      </ul>
+    </nav>
+  </aside>
+</template>
+
+<template name="footerTpl">
+  <footer class="container">
+    <p class="copyright"><small>&copy; {{copyright}}</small></p>
+  </footer>
+</template>

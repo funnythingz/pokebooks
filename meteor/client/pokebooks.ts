@@ -2,6 +2,9 @@
 /// <reference path="../packages/typescript-libs/ironrouter.d.ts" />
 /// <reference path="../packages/typescript-libs/node.d.ts" />
 
+/**
+* Classes
+*/
 class NavActiveChecker {
 
     constructor(private flag: boolean = false) {}
@@ -25,6 +28,9 @@ var aboutActiveChecker = new NavActiveChecker(false);
 
 declare var ItemsController;
 
+/**
+* Router
+*/
 Router.map(function() {
 
     this.route('home', {
@@ -75,54 +81,46 @@ Router.map(function() {
 
 });
 
-Template['headerTpl'].helpers({
 
+/**
+* Template
+*/
+
+Template['headerTpl'].helpers({
     title: () => {
         return "Pokebooks";
     }
-
 });
 
 Template['asideTpl'].helpers({
-
     homeActive: () => {
         return homeActiveChecker.callFlag();
     },
-
     aboutActive: () => {
         return aboutActiveChecker.callFlag();
     }
-
 });
 
 Template['footerTpl'].helpers({
-
     copyright: () => {
         return "funnythingz";
     }
-
 });
 
 Template['homeTpl'].helpers({
-
     title: () => {
         return "Home";
     },
-
     description: () => {
         return "This is `my pokebooks`.";
     }
-
 });
 
 Template['aboutTpl'].helpers({
-
     title: () => {
         return "About";
     },
-
     description: () => {
         return "This is `my pokebooks`.";
     }
-
 });
