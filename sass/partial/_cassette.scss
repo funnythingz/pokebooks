@@ -1,0 +1,28 @@
+.unit {
+  margin: 10px  0px;
+}
+.cassette {
+  border-top:   solid 1px #f1f2f3;
+  border-left:  solid 1px #f1f2f3;
+  border-right: solid 1px #f1f2f3;
+  background-color: transparent;
+  .inner{
+    padding: 5px;
+  }
+  &.first,
+  &:first-child {
+    @include border-top-radius(5px);
+  }
+  &.last,
+  &:last-child {
+    @include border-bottom-radius(5px);
+    border-bottom: solid 1px #f1f2f3;
+  }
+  &:only-child,
+  &.only {
+    @include border-radius(5px);
+  }
+}
+.headline + .cassette {
+  border-top: 0 none;
+}

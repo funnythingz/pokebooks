@@ -23,8 +23,8 @@ class NavActiveChecker {
 
 }
 
-var homeActiveChecker = new NavActiveChecker(false);
-var aboutActiveChecker = new NavActiveChecker(false);
+var myPokemonPageActiveChecker = new NavActiveChecker(false);
+var postPageActiveChecker = new NavActiveChecker(false);
 
 declare var ItemsController;
 
@@ -33,10 +33,10 @@ declare var ItemsController;
 */
 Router.map(function() {
 
-    this.route('home', {
+    this.route('my_pokemon', {
         path: '/',
         layoutTemplate: 'layout',
-        template: 'homeTpl',
+        template: 'myPokemonTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
@@ -44,22 +44,21 @@ Router.map(function() {
         },
 
         action: function() {
-            console.log('home');
-            homeActiveChecker.true();
-            aboutActiveChecker.false();
+            myPokemonPageActiveChecker.true();
+            postPageActiveChecker.false();
             this.render();
         },
 
         data: {
-            active: 'home'
+            active: 'my_pokemon'
         }
 
     });
 
-    this.route('about', {
-        path: '/about',
+    this.route('post', {
+        path: '/post',
         layoutTemplate: 'layout',
-        template: 'aboutTpl',
+        template: 'postTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
@@ -67,14 +66,14 @@ Router.map(function() {
         },
 
         action: function() {
-            console.log('about');
-            homeActiveChecker.false();
-            aboutActiveChecker.true();
+            console.log('post');
+            myPokemonPageActiveChecker.false();
+            postPageActiveChecker.true();
             this.render();
         },
 
         data: {
-            active: 'about'
+            active: 'post'
         }
 
     });
@@ -93,11 +92,11 @@ Template['headerTpl'].helpers({
 });
 
 Template['asideTpl'].helpers({
-    homeActive: () => {
-        return homeActiveChecker.callFlag();
+    myPokemonPageActive: () => {
+        return myPokemonPageActiveChecker.callFlag();
     },
-    aboutActive: () => {
-        return aboutActiveChecker.callFlag();
+    postPageActive: () => {
+        return postPageActiveChecker.callFlag();
     }
 });
 
@@ -107,20 +106,14 @@ Template['footerTpl'].helpers({
     }
 });
 
-Template['homeTpl'].helpers({
-    title: () => {
-        return "Home";
-    },
-    description: () => {
-        return "This is `my pokebooks`.";
+Template['myPokemonTpl'].helpers({
+    No: () => {
+        return "479"
     }
 });
 
-Template['aboutTpl'].helpers({
+Template['postTpl'].helpers({
     title: () => {
-        return "About";
-    },
-    description: () => {
-        return "This is `my pokebooks`.";
+        return "Post";
     }
 });

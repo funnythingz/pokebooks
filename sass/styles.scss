@@ -2,6 +2,10 @@
 @import "compass/css3";
 @import url(http://fonts.googleapis.com/css?family=Questrial|Henny+Penny|Bonbon);
 
+@import "partial/cassette";
+@import "partial/flexible";
+@import "partial/seemore";
+
 body {
   font-family: 'Questrial', sans-serif;
 }
