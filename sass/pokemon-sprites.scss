@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import "compass/css3";
+
+%_pokemon-sprite {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: bottom;
+  @include background-size(36px 36px);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.pokemon-sprite {
+  @extend %_pokemon-sprite;
+}
+
+@mixin _pokemon {
+  @for $i from 1 through 718 {
+    @if($i < 10) {
+      .no00#{$i} {
+        background-image: inline-image("pokemon/00#{$i}.png");
+      }
+    }
+    @if($i >= 10 and $i < 100) {
+      .no0#{$i} {
+        background-image: inline-image("pokemon/0#{$i}.png");
+      }
+    }
+    @if($i >= 100 and $i <= 718) {
+      .no#{$i} {
+        background-image: inline-image("pokemon/#{$i}.png");
+      }
+    }
+  }
+}
+
+@include _pokemon();
