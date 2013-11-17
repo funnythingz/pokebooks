@@ -13,3 +13,41 @@ body {
 .copyright {
   font-family: 'Henny Penny', cursive;
 }
+
+%_pokemon-sprite {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: bottom;
+  @include background-size(36px 36px);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.pokemon-sprite {
+  @extend %_pokemon-sprite;
+}
+
+/**
+@mixin _pokemon {
+  @for $i from 1 through 718 {
+    @if($i < 10) {
+      .no#{$i} {
+        background-image: inline-image("pokemon/00#{$i}.png");
+      }
+    }
+    @if($i >= 10 && $i < 100) {
+      .no#{$i} {
+        background-image: inline-image("pokemon/0#{$i}.png");
+      }
+    }
+    @if($i >= 100 && $i <= 718) {
+      .no#{$i} {
+        background-image: inline-image("pokemon/#{$i}.png");
+      }
+    }
+  }
+}
+
+@include _pokemon();
+/**/
