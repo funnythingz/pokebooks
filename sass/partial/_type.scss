@@ -1,0 +1,122 @@
+%_type-icon {
+  display: inline-block;
+  width: 54px;
+  line-height: 1;
+  padding: 3px 0;
+  margin-bottom: 1px;
+  font-size: 10px;
+  @include border-radius(2px);
+  color: #fff;
+  text-align: center;
+  @include text-shadow(1px 1px 1px #333);
+  text-transform: uppercase;
+}
+
+.type-normal {
+  @extend %_type-icon;
+  background-color: #8a8a59;
+  border: solid 1px #79794e;
+  @include background-image(linear-gradient(#a8a878, #8a8a59));
+}
+.type-fire {
+  @extend %_type-icon;
+  background-color: #f08030;
+  border: solid 1px #b4530d;
+  @include background-image(linear-gradient(#f08030, #dd6610));
+}
+.type-water {
+  @extend %_type-icon;
+  background-color: #6890f0;
+  border: solid 1px #1753e3;
+  @include background-image(linear-gradient(#6890f0, #386ceb));
+}
+.type-electric {
+  @extend %_type-icon;
+  background-color: #f8d030;
+  border: solid 1px #c19b07;
+  @include background-image(linear-gradient(#f8d030, #f0c108));
+}
+.type-grass {
+  @extend %_type-icon;
+  background-color: #78c850;
+  border: solid 1px #4a892b;
+  @include background-image(linear-gradient(#78c850, #5ca935));
+}
+.type-ice {
+  @extend %_type-icon;
+  background-color: #98d8d8;
+  border: solid 1px #45b6b6;
+  @include background-image(linear-gradient(#98d8d8, #69c6c6));
+}
+.type-fighting {
+  @extend %_type-icon;
+  background-color: #c03028;
+  border: solid 1px #82211b;
+  @include background-image(linear-gradient(#c03028, #9d2721));
+}
+.type-poison {
+  @extend %_type-icon;
+  background-color: #a040a0;
+  border: solid 1px #662966;
+  @include background-image(linear-gradient(#a040a0, #803380));
+}
+.type-ground {
+  @extend %_type-icon;
+  background-color: #e0c068;
+  border: solid 1px #aa8623;
+  @include background-image(linear-gradient(#e0c068, #d4a82f));
+}
+.type-flying {
+  @extend %_type-icon;
+  background-color: #a890f0;
+  border: solid 1px #7762b6;
+  @include background-image(linear-gradient(#a890f0, #9180c4));
+}
+.type-psychic {
+  @extend %_type-icon;
+  background-color: #f85888;
+  border: solid 1px #d60945;
+  @include background-image(linear-gradient(#f85888, #f61c5d));
+}
+.type-bug {
+  @extend %_type-icon;
+  background-color: #a8b820;
+  border: solid 1px #616b13;
+  @include background-image(linear-gradient(#a8b820, #8d9a1b));
+}
+.type-rock {
+  @extend %_type-icon;
+  background-color: #b8a038;
+  border: solid 1px #746523;
+  @include background-image(linear-gradient(#b8a038, #93802d));
+}
+.type-ghost {
+  @extend %_type-icon;
+  background-color: #705898;
+  border: solid 1px #413359;
+  @include background-image(linear-gradient(#705898, #554374));
+}
+.type-dragon {
+  @extend %_type-icon;
+  background-color: #7038f8;
+  border: solid 1px #3d07c0;
+  @include background-image(linear-gradient(#7038f8, #4c08ef));
+}
+.type-dark {
+  @extend %_type-icon;
+  background-color: #705848;
+  border: solid 1px #362a23;
+  @include background-image(linear-gradient(#705848, #513f34));
+}
+.type-steel {
+  @extend %_type-icon;
+  background-color: #b8b8d0;
+  border: solid 1px #7a7aa7;
+  @include background-image(linear-gradient(#b8b8d0, #9797ba));
+}
+.type-faily {
+  @extend %_type-icon;
+  background-color: #e898e8;
+  border: solid 1px #d547d5;
+  @include background-image(linear-gradient(#e898e8, #de6ede));
+}
