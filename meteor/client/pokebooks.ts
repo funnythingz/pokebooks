@@ -55,6 +55,17 @@ Router.map(function() {
 
     });
 
+    this.route('pokemon_entry', {
+        path: '/pokemon_entry/:_id',
+        layoutTemplate: 'layout',
+        template: 'pokemonEntryTpl',
+        yieldTemplates: {
+            'headerTpl': {to: 'header'},
+            'footerTpl': {to: 'footer'}
+        }
+
+    });
+
     this.route('post', {
         path: '/post',
         layoutTemplate: 'layout',
@@ -109,6 +120,18 @@ Template['footerTpl'].helpers({
 Template['myPokemonTpl'].helpers({
     No: () => {
         return "479"
+    }
+});
+
+Template['myPokemonTpl'].events({
+    'click .hoge': () => {
+        console.log('hoge');
+    }
+});
+
+Template['pokemonEntryTpl'].helpers({
+    title: () => {
+        return "Pokemon Name";
     }
 });
 
