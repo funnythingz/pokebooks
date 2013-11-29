@@ -56,13 +56,7 @@ Router.map(function() {
     });
 
     this.route('pokemon_entry', {
-        path: '/pokemon_entry/:_id',
-        layoutTemplate: 'layout',
-        template: 'pokemonEntryTpl',
-        yieldTemplates: {
-            'headerTpl': {to: 'header'},
-            'footerTpl': {to: 'footer'}
-        }
+        path: '/pokemon_entry/:_id'
 
     });
 
@@ -77,7 +71,6 @@ Router.map(function() {
         },
 
         action: function() {
-            console.log('post');
             myPokemonPageActiveChecker.false();
             postPageActiveChecker.true();
             this.render();
@@ -91,6 +84,7 @@ Router.map(function() {
 
 });
 
+Router.routes['pokemon_entry'].path({_id: 1});
 
 /**
 * Template

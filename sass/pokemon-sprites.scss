@@ -22,6 +22,11 @@
   height: 72px;
   @include background-size(72px 72px);
 }
+%_size96 {
+  width: 96px;
+  height: 96px;
+  @include background-size(96px 96px);
+}
 
 .pokemon-sprite {
   @extend %_pokemon-sprite;
@@ -39,6 +44,11 @@
 .wrap-icon72 {
   .pokemon-sprite {
     @extend %_size72;
+  }
+}
+.wrap-icon96 {
+  .pokemon-sprite {
+    @extend %_size96;
   }
 }
 

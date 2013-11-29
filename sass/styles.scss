@@ -7,6 +7,7 @@
 @import "partial/seemore";
 
 @import "partial/type";
+@import "partial/move";
 
 body {
   font-family: 'Questrial', sans-serif;
@@ -18,4 +19,67 @@ body {
 
 .copyright {
   font-family: 'Henny Penny', cursive;
+}
+
+%_small {
+  font-size: 12px;
+}
+%_medium {
+  font-size: 14px;
+}
+%_large {
+  font-size: 16px;
+}
+%_bold {
+  font-weight: bold;
+}
+%_top {
+  vertical-align: top !important;
+}
+%_middle {
+  vertical-align: middle !important;
+}
+%_bottom {
+  vertical-align: bottom !important;
+}
+%_baseline {
+  vertical-align: baseline !important;
+}
+
+.spacing {
+  margin-bottom: 8px;
+}
+
+.sentence {
+  line-height: 1.4;
+  @extend %_medium;
+}
+.small {
+  @extend %_small;
+}
+.large {
+  @extend %_large;
+}
+.top {
+  @extend %_top;
+}
+.middle {
+  @extend %_middle;
+}
+.bottom {
+  @extend %_bottom;
+}
+.baseline {
+  @extend %_baseline;
+}
+._level {
+  margin-left: 4px;
+}
+._number {
+}
+._name {
+  @extend %_large;
+  @extend %_bold;
+}
+._move {
 }

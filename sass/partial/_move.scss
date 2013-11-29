@@ -1,0 +1,41 @@
+%_move-icon {
+  display: inline-block;
+  width: 24px;
+  line-height: 1;
+  padding: 3px 0;
+  margin-bottom: 1px;
+  font-size: 10px;
+  @include border-radius(2px);
+  color: #fff;
+  text-align: center;
+  @include text-shadow(1px 1px 1px #333);
+  text-transform: uppercase;
+}
+
+.move-special {
+  @extend %_move-icon;
+  background-color: #f85888;
+  border: solid 1px #d60945;
+  @include background-image(linear-gradient(#f85888, #f61c5d));
+  &:after {
+    content: "特殊"
+  }
+}
+.move-physical {
+  @extend %_move-icon;
+  background-color: #c03028;
+  border: solid 1px #82211b;
+  @include background-image(linear-gradient(#c03028, #9d2721));
+  &:after {
+    content: "物理"
+  }
+}
+.move-status {
+  @extend %_move-icon;
+  background-color: #b8b8d0;
+  border: solid 1px #7a7aa7;
+  @include background-image(linear-gradient(#b8b8d0, #9797ba));
+  &:after {
+    content: "変化"
+  }
+}
