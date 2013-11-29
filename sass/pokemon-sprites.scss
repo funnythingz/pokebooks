@@ -2,17 +2,44 @@
 @import "compass/css3";
 
 %_pokemon-sprite {
-  width: 36px;
-  height: 36px;
   display: inline-block;
   vertical-align: bottom;
-  @include background-size(36px 36px);
   background-position: 0 0;
   background-repeat: no-repeat;
+}
+%_size36 {
+  width: 36px;
+  height: 36px;
+  @include background-size(36px 36px);
+}
+%_size48 {
+  width: 48px;
+  height: 48px;
+  @include background-size(48px 48px);
+}
+%_size72 {
+  width: 72px;
+  height: 72px;
+  @include background-size(72px 72px);
 }
 
 .pokemon-sprite {
   @extend %_pokemon-sprite;
+}
+.wrap-icon36 {
+  .pokemon-sprite {
+    @extend %_size36;
+  }
+}
+.wrap-icon48 {
+  .pokemon-sprite {
+    @extend %_size48;
+  }
+}
+.wrap-icon72 {
+  .pokemon-sprite {
+    @extend %_size72;
+  }
 }
 
 @mixin _pokemon {
