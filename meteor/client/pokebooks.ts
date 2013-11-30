@@ -57,28 +57,10 @@ module Domain {
         }
     }
 
-    export class Types {
-
-        constructor(private types: Type[]) {}
-
-        getCount(): number {
-            return this.types.length;
-        }
-
-        getTypes(): Type[] {
-            return this.types;
-        }
-    }
-
     export class Pokemon extends DDD.Entity<DDD.Identity<string>> {
 
-        constructor(identity: DDD.Identity<string>,
-                    private name: Name) {
+        constructor(identity: DDD.Identity<string>) {
             super(identity);
-        }
-
-        getName(): string {
-            return this.name.getValue();
         }
 
     }
@@ -95,75 +77,92 @@ module Domain {
 // Factory
 module Factory {
 
-    export class PokemonCreator {
+    export class AbstractPokemon {
 
-        private rotom: Domain.Pokemon;
-        private types: Domain.Types;
+        public pokemon: Domain.Pokemon;
 
-        constructor(id: string, name: string, type: Domain.Type[]) {
-            this.rotom = new Domain.Pokemon(
-                new Domain.PokemonID(id),
-                new Domain.Name(name)
-            );
+        constructor(public id: Domain.PokemonID = null,
+                    public name: Domain.Name = null,
+                    public types: Domain.Type[] = null) {
 
-            this.types = new Domain.Types(type);
+            this.pokemon = new Domain.Pokemon(this.id);
         }
 
         actual(): Domain.Pokemon {
-            return this.rotom;
+            return this.pokemon;
         }
 
-        getTypes(): Domain.Types {
+        getTypes(): Domain.Type[] {
             return this.types;
+        }
+    }
+
+    export class Charizard extends AbstractPokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id), new Domain.Name('リザードン'), [new Domain.Type('fire'), new Domain.Type('flying')]);
+        }
+    }
+
+    export class Rotom extends AbstractPokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id), new Domain.Name('ロトム'), [new Domain.Type('water'), new Domain.Type('dark')]);
         }
     }
 
     export class PokemonFactory {
 
         createPokemon(hash: string,
-                      pokemon_number: string): PokemonCreator {
+                      pokemon_number: string): AbstractPokemon {
+
             switch(pokemon_number) {
+                case '006':
+                    return new Charizard(hash);
                 case '479':
-                    return new PokemonCreator(hash,
-                                              'ロトム',
-                                              [new Domain.Type('water'), new Domain.Type('dark')]);
+                    return new Rotom(hash);
             }
         }
     }
 }
 
 var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
-var rotom1 = pokemonFactory.createPokemon('hash1', '479');
-var rotom2 = pokemonFactory.createPokemon('hash2', '479');
-
+var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
+var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
+var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
+var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
 
 console.log(rotom1);
 console.log(rotom2);
+console.log(charizard1);
+console.log(charizard2);
 console.log(rotom1.actual().equals(rotom2.actual()));
 
 /**
 * Helpers
 */
-class NavActiveChecker {
+module Helpers {
 
-    constructor(private flag: boolean = false) {}
+    export class NavActiveChecker {
 
-    false() {
-        this.flag = false;
-    }
+        constructor(private flag: boolean = false) {}
 
-    true() {
-        this.flag = true;
-    }
+        false() {
+            this.flag = false;
+        }
 
-    callFlag(): boolean {
-        return this.flag;
+        true() {
+            this.flag = true;
+        }
+
+        callFlag(): boolean {
+            return this.flag;
+        }
+
     }
 
 }
 
-var pokemonsPageActiveChecker = new NavActiveChecker(false);
-var postPageActiveChecker = new NavActiveChecker(false);
+var pokemonsPageActiveChecker = new Helpers.NavActiveChecker(false);
+var postPageActiveChecker = new Helpers.NavActiveChecker(false);
 
 declare var ItemsController;
 
