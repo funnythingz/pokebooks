@@ -23,7 +23,7 @@ class NavActiveChecker {
 
 }
 
-var myPokemonPageActiveChecker = new NavActiveChecker(false);
+var pokemonsPageActiveChecker = new NavActiveChecker(false);
 var postPageActiveChecker = new NavActiveChecker(false);
 
 declare var ItemsController;
@@ -33,10 +33,10 @@ declare var ItemsController;
 */
 Router.map(function() {
 
-    this.route('my_pokemon', {
+    this.route('pokemons', {
         path: '/',
         layoutTemplate: 'layout',
-        template: 'myPokemonTpl',
+        template: 'pokemonsTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
@@ -44,20 +44,25 @@ Router.map(function() {
         },
 
         action: function() {
-            myPokemonPageActiveChecker.true();
+            pokemonsPageActiveChecker.true();
             postPageActiveChecker.false();
             this.render();
         },
 
         data: {
-            active: 'my_pokemon'
+            active: 'pokemons'
         }
 
     });
 
-    this.route('pokemon_entry', {
-        path: '/pokemon_entry/:_id'
-
+    this.route('pokemon', {
+        path: '/pokemon',
+        layoutTemplate: 'layout',
+        template: 'pokemonTpl',
+        yieldTemplates: {
+            'headerTpl': {to: 'header'},
+            'footerTpl': {to: 'footer'}
+        }
     });
 
     this.route('post', {
@@ -71,7 +76,7 @@ Router.map(function() {
         },
 
         action: function() {
-            myPokemonPageActiveChecker.false();
+            pokemonsPageActiveChecker.false();
             postPageActiveChecker.true();
             this.render();
         },
@@ -84,7 +89,7 @@ Router.map(function() {
 
 });
 
-Router.routes['pokemon_entry'].path({_id: 1});
+Router.routes['pokemon'].path({_id: 1});
 
 /**
 * Template
@@ -97,8 +102,8 @@ Template['headerTpl'].helpers({
 });
 
 Template['asideTpl'].helpers({
-    myPokemonPageActive: () => {
-        return myPokemonPageActiveChecker.callFlag();
+    pokemonsPageActive: () => {
+        return pokemonsPageActiveChecker.callFlag();
     },
     postPageActive: () => {
         return postPageActiveChecker.callFlag();
@@ -111,21 +116,55 @@ Template['footerTpl'].helpers({
     }
 });
 
-Template['myPokemonTpl'].helpers({
-    No: () => {
-        return "479"
+Template['pokemonsTpl'].helpers({
+    pokemons: () => {
+        return [
+            {id: 'pokemon1', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
+            {id: 'pokemon2', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
+            {id: 'pokemon3', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
+            {id: 'pokemon4', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'}
+        ];
     }
 });
-
-Template['myPokemonTpl'].events({
+Template['pokemonsTpl'].events({
     'click .hoge': () => {
         console.log('hoge');
     }
 });
 
-Template['pokemonEntryTpl'].helpers({
-    title: () => {
-        return "Pokemon Name";
+Template['pokemonTpl'].helpers({
+    id: () => {
+        return 'pokemon1';
+    },
+
+    No: () => {
+        return '479';
+    },
+
+    Lv: () => {
+        return '10';
+    },
+
+    name: () => {
+        return 'ロトム';
+    },
+
+    types: () => {
+        return [{type: 'electric'}, {type: 'water'}];
+    },
+
+    ability: () => {
+        return 'ふゆう';
+    },
+});
+Template['moveTpl'].helpers({
+    moves: () => {
+        return [
+            {id: 'move1', type: 'electric', moveType: 'physical', name: 'かみなり'},
+            {id: 'move1', type: 'water', moveType: 'special', name: 'ハイドロポンプ'},
+            {id: 'move1', type: 'dark', moveType: 'special', name: 'あくのはどう'},
+            {id: 'move1', type: 'electric', moveType: 'status', name: 'ほうでん'}
+        ];
     }
 });
 

@@ -1,0 +1,46 @@
+<template name="pokemonTpl">
+  <section class="container">
+    <section class="unit">
+      <article class="cassette" id="{{id}}">
+        <div class="inner">
+          <div class="flexible">
+            <div class="wrap-icon96">
+              <span class="pokemon-sprite no{{No}}"></span>
+            </div>
+            <div class="item">
+              <div class="sentence"><span class="_number">No.{{No}}</span></div>
+              <div class="sentence"><span class="_name">{{name}}</span><small class="_level">Lv.{{Lv}}</small></div>
+              <div class="sentence spacing">
+                {{#each types}}
+                <span class="type-{{type}}"></span>
+                {{/each}}
+              </div>
+              <div class="sentence">{{ability}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="inner">
+          {{> moveTpl}}
+        </div>
+      </article>
+    </section>
+  </section>
+</template>
+
+<template name="moveTpl">
+  {{#each moves}}
+  <article class="cassette" id="{{id}}">
+    <div class="inner">
+      <div class="flexible">
+        <div class="item middle">
+          <div class="sentence">
+            <span class="type-{{type}} middle"></span>
+            <span class="move-{{moveType}}"></span>
+            <span class="_move sentence">{{name}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  {{/each}}
+</template>
