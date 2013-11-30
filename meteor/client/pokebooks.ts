@@ -91,6 +91,13 @@ module Domain {
             return this.pp;
         }
     }
+
+    export class PokemonPage {
+
+        constructor(public pokemon: Pokemon,
+                    public moves: Move[]) {}
+    
+    }
 }
 
 // PokemonList
