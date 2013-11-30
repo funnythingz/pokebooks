@@ -50,10 +50,10 @@ module Domain {
 
     export class Type {
 
-        constructor(private typeName: string) {}
+        constructor(private type: string) {}
 
         getValue(): string {
-            return this.typeName;
+            return this.type;
         }
     }
 
@@ -74,6 +74,22 @@ module Domain {
             super(value);
         }
 
+    }
+
+    export class Move {
+
+        constructor(public name: Name,
+                    public pp: PowerPoint) {}
+
+    }
+
+    export class PowerPoint {
+
+        constructor(private pp: string) {}
+
+        getValue(): string {
+            return this.pp;
+        }
     }
 }
 
@@ -130,6 +146,7 @@ console.log(rotom1);
 console.log(rotom2);
 console.log(charizard1);
 console.log(charizard2);
+console.log(rotom1.equals(rotom1));
 console.log(rotom1.equals(rotom2));
 
 /**
