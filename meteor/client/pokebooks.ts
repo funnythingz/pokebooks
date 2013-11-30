@@ -16,7 +16,7 @@ module DDD {
             return this.value.toString();
         }
 
-        getIdentity(): T {
+        getId(): T {
             return this.value;
         }
 
@@ -24,14 +24,14 @@ module DDD {
 
     export class Entity<ID extends Identity<any>> {
 
-        constructor(private identity: ID) {}
+        constructor(private id: ID) {}
         
-        getIdentity(): ID {
-            return this.identity;
+        getId(): ID {
+            return this.id;
         }
         
         equals(other: Entity<ID>): boolean {
-            return this.getIdentity() === other.getIdentity();
+            return this.getId() === other.getId();
         }
     }
 }
@@ -59,8 +59,11 @@ module Domain {
 
     export class Pokemon extends DDD.Entity<DDD.Identity<string>> {
 
-        constructor(identity: DDD.Identity<string>) {
-            super(identity);
+        constructor(id: Domain.PokemonID = null,
+                    public name: Domain.Name = null,
+                    public types: Domain.Type[] = null) {
+
+            super(id);
         }
 
     }
@@ -74,51 +77,44 @@ module Domain {
     }
 }
 
-// Factory
-module Factory {
+// PokemonList
+module PokemonList {
 
-    export class AbstractPokemon {
-
-        public pokemon: Domain.Pokemon;
-
-        constructor(public id: Domain.PokemonID = null,
-                    public name: Domain.Name = null,
-                    public types: Domain.Type[] = null) {
-
-            this.pokemon = new Domain.Pokemon(this.id);
-        }
-
-        actual(): Domain.Pokemon {
-            return this.pokemon;
-        }
-
-        getTypes(): Domain.Type[] {
-            return this.types;
-        }
-    }
-
-    export class Charizard extends AbstractPokemon {
+    export class Charizard extends Domain.Pokemon {
         constructor(id: string) {
             super(new Domain.PokemonID(id), new Domain.Name('リザードン'), [new Domain.Type('fire'), new Domain.Type('flying')]);
         }
     }
 
-    export class Rotom extends AbstractPokemon {
+    export class Rotom extends Domain.Pokemon {
         constructor(id: string) {
-            super(new Domain.PokemonID(id), new Domain.Name('ロトム'), [new Domain.Type('water'), new Domain.Type('dark')]);
+            super(new Domain.PokemonID(id), new Domain.Name('ロトム'), [new Domain.Type('water'), new Domain.Type('ghost')]);
         }
     }
+
+    export class Greninja extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id), new Domain.Name('ゲッコウガ'), [new Domain.Type('water'), new Domain.Type('dark')]);
+        }
+    }
+
+}
+
+// Factory
+module Factory {
 
     export class PokemonFactory {
 
         createPokemon(hash: string,
-                      pokemon_number: string): AbstractPokemon {
+                      pokemon_number: string): Domain.Pokemon {
 
             switch(pokemon_number) {
                 case '006':
-                    return new Charizard(hash);
+                    return new PokemonList.Charizard(hash);
                 case '479':
-                    return new Rotom(hash);
+                    return new PokemonList.Rotom(hash);
+                case '658':
+                    return new PokemonList.Rotom(hash);
             }
         }
     }
@@ -134,7 +130,7 @@ console.log(rotom1);
 console.log(rotom2);
 console.log(charizard1);
 console.log(charizard2);
-console.log(rotom1.actual().equals(rotom2.actual()));
+console.log(rotom1.equals(rotom2));
 
 /**
 * Helpers
