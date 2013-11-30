@@ -3,7 +3,141 @@
 /// <reference path="../packages/typescript-libs/node.d.ts" />
 
 /**
-* Classes
+* DDD
+*/
+// Base
+module DDD {
+
+    export class Identity<T> {
+
+        constructor(private value: T) {}
+
+        getValue(): string {
+            return this.value.toString();
+        }
+
+        getIdentity(): T {
+            return this.value;
+        }
+
+    }
+
+    export class Entity<ID extends Identity<any>> {
+
+        constructor(private identity: ID) {}
+        
+        getIdentity(): ID {
+            return this.identity;
+        }
+        
+        equals(other: Entity<ID>): boolean {
+            return this.getIdentity() === other.getIdentity();
+        }
+    }
+}
+
+// Domain
+module Domain {
+
+    export class Name {
+
+        constructor(private name: string) {}
+
+        getValue(): string {
+            return this.name;
+        }
+    }
+
+    export class Type {
+
+        constructor(private typeName: string) {}
+
+        getValue(): string {
+            return this.typeName;
+        }
+    }
+
+    export class Types {
+
+        constructor(private types: Type[]) {}
+
+        getCount(): number {
+            return this.types.length;
+        }
+
+        getTypes(): Type[] {
+            return this.types;
+        }
+    }
+
+    export class Pokemon extends DDD.Entity<DDD.Identity<string>> {
+
+        constructor(identity: DDD.Identity<string>,
+                    private name: Name) {
+            super(identity);
+        }
+
+        getName(): string {
+            return this.name.getValue();
+        }
+
+    }
+
+    export class PokemonID extends DDD.Identity<string> {
+
+        constructor(value: string) {
+            super(value);
+        }
+
+    }
+}
+
+// Factory
+module Factory {
+
+    export class PokemonCreator {
+
+        private rotom: Domain.Pokemon;
+        private types: Domain.Types;
+
+        constructor(id: string, name: string, type: Domain.Type[]) {
+            this.rotom = new Domain.Pokemon(
+                new Domain.PokemonID(id),
+                new Domain.Name(name)
+            );
+
+            this.types = new Domain.Types(type);
+        }
+
+        actual(): Domain.Pokemon {
+            return this.rotom;
+        }
+
+        getTypes(): Domain.Types {
+            return this.types;
+        }
+    }
+
+    export class PokemonFactory {
+
+        createPokemon(hash: string,
+                      pokemon_number: string): PokemonCreator {
+            switch(pokemon_number) {
+                case '479':
+                    return new PokemonCreator(hash,
+                                              'ロトム',
+                                              [new Domain.Type('water'), new Domain.Type('dark')]);
+            }
+        }
+    }
+}
+
+var rotomFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
+var rotom = rotomFactory.createPokemon('hash1', '479');
+console.log(rotom);
+
+/**
+* Helpers
 */
 class NavActiveChecker {
 
