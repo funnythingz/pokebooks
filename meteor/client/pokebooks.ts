@@ -105,19 +105,25 @@ module PokemonList {
 
     export class Charizard extends Domain.Pokemon {
         constructor(id: string) {
-            super(new Domain.PokemonID(id), new Domain.Name('リザードン'), [new Domain.Type('fire'), new Domain.Type('flying')]);
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('リザードン'),
+                  [new Domain.Type('fire'), new Domain.Type('flying')]);
         }
     }
 
     export class Rotom extends Domain.Pokemon {
         constructor(id: string) {
-            super(new Domain.PokemonID(id), new Domain.Name('ロトム'), [new Domain.Type('water'), new Domain.Type('ghost')]);
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('ロトム'),
+                  [new Domain.Type('water'), new Domain.Type('ghost')]);
         }
     }
 
     export class Greninja extends Domain.Pokemon {
         constructor(id: string) {
-            super(new Domain.PokemonID(id), new Domain.Name('ゲッコウガ'), [new Domain.Type('water'), new Domain.Type('dark')]);
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('ゲッコウガ'),
+                  [new Domain.Type('water'), new Domain.Type('dark')]);
         }
     }
 
