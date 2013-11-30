@@ -132,9 +132,14 @@ module Factory {
     }
 }
 
-var rotomFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
-var rotom = rotomFactory.createPokemon('hash1', '479');
-console.log(rotom);
+var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
+var rotom1 = pokemonFactory.createPokemon('hash1', '479');
+var rotom2 = pokemonFactory.createPokemon('hash2', '479');
+
+
+console.log(rotom1);
+console.log(rotom2);
+console.log(rotom1.actual().equals(rotom2.actual()));
 
 /**
 * Helpers
