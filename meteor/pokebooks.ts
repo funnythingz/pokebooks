@@ -181,6 +181,11 @@ var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
 var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
 
 var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, Abilites.levitate, [Move.thunder, Move.hydroPump, Move.darkPulse, Move.discharge]);
+
+/**
+* Test
+*/
+/**
 console.log(pokemonPage);
 
 console.log(rotom1);
@@ -189,7 +194,7 @@ console.log(charizard1);
 console.log(charizard2);
 console.log(rotom1.equals(rotom1));
 console.log(rotom1.equals(rotom2));
-
+/**/
 
 /**
 * Dictionary
@@ -322,7 +327,11 @@ Template['footerTpl'].helpers({
 Template['pokemonsTpl'].helpers({
 
     pokemons: () => {
-        return Collections.PokebookCollection.find({}, {sort: {created_at: -1}});
+        var pokebook = Collections.PokebookCollection.find({}, {sort: {created_at: -1}});
+        pokebook.forEach(function(pb) {
+            console.log(pb);
+        });
+        return pokebook;
     }
     /**
     pokemons: () => {
@@ -405,7 +414,6 @@ Template['postTpl'].events({
             created_at: (new Date()).getTime()
         });
 
-        console.log(Collections.PokebookCollection.find({}, {sort: {created_at: -1}}));
     }
 
 });
