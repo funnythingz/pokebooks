@@ -166,29 +166,7 @@ console.log(rotom1.equals(rotom2));
 * Helpers
 */
 module Helpers {
-
-    export class NavActiveChecker {
-
-        constructor(private flag: boolean = false) {}
-
-        false() {
-            this.flag = false;
-        }
-
-        true() {
-            this.flag = true;
-        }
-
-        callFlag(): boolean {
-            return this.flag;
-        }
-
-    }
-
 }
-
-var pokemonsPageActiveChecker = new Helpers.NavActiveChecker(false);
-var postPageActiveChecker = new Helpers.NavActiveChecker(false);
 
 declare var ItemsController;
 
@@ -205,18 +183,7 @@ Router.map(function() {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
-        },
-
-        action: function() {
-            pokemonsPageActiveChecker.true();
-            postPageActiveChecker.false();
-            this.render();
-        },
-
-        data: {
-            active: 'pokemons'
         }
-
     });
 
     this.route('pokemon', {
@@ -225,6 +192,7 @@ Router.map(function() {
         template: 'pokemonTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
+            'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
         }
     });
@@ -237,18 +205,7 @@ Router.map(function() {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
-        },
-
-        action: function() {
-            pokemonsPageActiveChecker.false();
-            postPageActiveChecker.true();
-            this.render();
-        },
-
-        data: {
-            active: 'post'
         }
-
     });
 
 });
@@ -266,12 +223,6 @@ Template['headerTpl'].helpers({
 });
 
 Template['asideTpl'].helpers({
-    pokemonsPageActive: () => {
-        return pokemonsPageActiveChecker.callFlag();
-    },
-    postPageActive: () => {
-        return postPageActiveChecker.callFlag();
-    }
 });
 
 Template['footerTpl'].helpers({
@@ -291,7 +242,7 @@ Template['pokemonsTpl'].helpers({
     }
 });
 Template['pokemonsTpl'].events({
-    'click .hoge': () => {
+    'click .cassette': () => {
         console.log('hoge');
     }
 });

@@ -21,9 +21,10 @@
 <template name="asideTpl">
   <aside class="container">
     <nav>
-      <ul class="nav nav-tabs">
-        <li{{#if myPokemonPageActive}} class="active"{{/if}}><a href="{{pathFor 'my_pokemon'}}">My Pokemon</a></li>
-        <li{{#if postPageActive}} class="active"{{/if}}><a href="{{pathFor 'post'}}">Post</a></li>
+      <ul>
+        <li><a href="{{pathFor 'pokemons'}}">pokemons</a></li>
+        <li><a href="{{pathFor 'pokemon'}}">pokemon</a></li>
+        <li><a href="{{pathFor 'post'}}">Post</a></li>
       </ul>
     </nav>
   </aside>

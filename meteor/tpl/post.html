@@ -1,7 +1,41 @@
 <template name="postTpl">
-
   <section class="container">
-    <h1 class="h2">{{title}}</h1>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="inputPokemonName" class="col-sm-2 control-label">ポケモンのなまえ</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPokemonName" placeholder="ex: ロトム">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMove1" class="col-sm-2 control-label">おぼえているわざ１</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputMove1" placeholder="ex: かみなり">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMove2" class="col-sm-2 control-label">おぼえているわざ２</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputMove2" placeholder="ex: ハイドロポンプ">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMove3" class="col-sm-2 control-label">おぼえているわざ３</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputMove3" placeholder="ex: あくのはどう">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMove4" class="col-sm-2 control-label">おぼえているわざ４</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputMove4" placeholder="ex: ほうでん">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+          <button type="button" class="btn btn-primary btn-lg btn-block">とうろくする</button>
+        </div>
+      </div>
+    </form>
   </section>
-
 </template>
