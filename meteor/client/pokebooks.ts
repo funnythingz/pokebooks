@@ -92,10 +92,17 @@ module Domain {
         }
     }
 
+    export class Abilites {
+
+        constructor(public name: Name) {}
+
+    }
+
     export class PokemonPage {
 
         constructor(public pokemon: Pokemon,
-                    public moves: Move[]) {}
+                    public moves: Move[],
+                    public abilites: Abilites) {}
     
     }
 }
@@ -154,6 +161,16 @@ var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
 var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
 var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
 var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
+
+var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'), new Domain.PowerPoint('10'));
+var hydroPump: Domain.Move = new Domain.Move(new Domain.Name('ハイドロポンプ'), new Domain.PowerPoint('5'));
+var darkPulse: Domain.Move = new Domain.Move(new Domain.Name('あくのはどう'), new Domain.PowerPoint('15'));
+var discharge: Domain.Move = new Domain.Move(new Domain.Name('ほうでん'), new Domain.PowerPoint('10'));
+
+var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
+
+var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, [thunder, hydroPump, darkPulse, discharge], levitate);
+console.log(pokemonPage);
 
 console.log(rotom1);
 console.log(rotom2);
