@@ -1,6 +1,7 @@
 /// <reference path="../packages/typescript-libs/meteor.d.ts" />
 /// <reference path="../packages/typescript-libs/ironrouter.d.ts" />
 /// <reference path="../packages/typescript-libs/node.d.ts" />
+/// <reference path="../packages/typescript-libs/jquery.d.ts" />
 
 /**
 * DDD
@@ -156,20 +157,30 @@ module Factory {
     }
 }
 
+// Move
+module Move {
+
+    export var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'), new Domain.PowerPoint('10'));
+    export var hydroPump: Domain.Move = new Domain.Move(new Domain.Name('ハイドロポンプ'), new Domain.PowerPoint('5'));
+    export var darkPulse: Domain.Move = new Domain.Move(new Domain.Name('あくのはどう'), new Domain.PowerPoint('15'));
+    export var discharge: Domain.Move = new Domain.Move(new Domain.Name('ほうでん'), new Domain.PowerPoint('10'));
+
+}
+
+// Abilites
+module Abilites {
+
+    export var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
+
+}
+
 var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
 var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
 var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
 var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
 var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
 
-var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'), new Domain.PowerPoint('10'));
-var hydroPump: Domain.Move = new Domain.Move(new Domain.Name('ハイドロポンプ'), new Domain.PowerPoint('5'));
-var darkPulse: Domain.Move = new Domain.Move(new Domain.Name('あくのはどう'), new Domain.PowerPoint('15'));
-var discharge: Domain.Move = new Domain.Move(new Domain.Name('ほうでん'), new Domain.PowerPoint('10'));
-
-var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
-
-var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, [thunder, hydroPump, darkPulse, discharge], levitate);
+var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, [Move.thunder, Move.hydroPump, Move.darkPulse, Move.discharge], Abilites.levitate);
 console.log(pokemonPage);
 
 console.log(rotom1);
@@ -179,10 +190,53 @@ console.log(charizard2);
 console.log(rotom1.equals(rotom1));
 console.log(rotom1.equals(rotom2));
 
+
+/**
+* Dictionary
+*/
+module Dictionary {
+
+    export var pokemons = [
+        {pokemon_name: 'ロトム', pokemon_id: '479'}
+    ];
+
+    export var moves = [
+        {move_name: 'かみなり', move_id: 'thunder'},
+        {move_name: 'ハイドロポンプ', move_id: 'hydroPump'},
+        {move_name: 'あくのはどう', move_id: 'darkPulse'},
+        {move_name: 'ほうでん', move_id: 'discharge'}
+    ];
+
+    export var abilites = [
+        {abilites_name: 'ふゆう', abilites_id: 'levitate'}
+    ];
+
+}
+
+
 /**
 * Helpers
 */
 module Helpers {
+
+    export class ArrayUtil {
+
+        static uniq(array: any[]): any[] {
+            var o = {}, i: number, l: number = array.length, r: any[] = [];
+
+            for(i = 0; i < l; i += 1) {
+                o[array[i]] = array[i];
+            }
+
+            for(var k in o) {
+                r.push(o[k]);
+            }
+
+            return r;
+        }
+    
+    }
+    
 }
 
 declare var ItemsController;
@@ -301,7 +355,31 @@ Template['moveTpl'].helpers({
 });
 
 Template['postTpl'].helpers({
-    title: () => {
-        return "Post";
+
+    pokemons: () => {
+        return Dictionary.pokemons;
+    },
+
+    abilites: () => {
+        return Dictionary.abilites;
+    },
+
+    moves: () => {
+        return Dictionary.moves;
     }
+
+});
+Template['postTpl'].events({
+
+    'click #addPokepage': () => {
+
+        var selectedPokemon: string =  $('#selectPokemon').val();
+        var selectedAbilites: string = $('#selectAbilites').val();
+
+        var selectedMoveList: string[] = Helpers.ArrayUtil.uniq([$('#selectMove1').val(),
+                                                                 $('#selectMove2').val(),
+                                                                 $('#selectMove3').val(),
+                                                                 $('#selectMove4').val()]);
+    }
+
 });

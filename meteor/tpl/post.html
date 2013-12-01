@@ -2,38 +2,68 @@
   <section class="container">
     <form class="form-horizontal" role="form">
       <div class="form-group">
-        <label for="inputPokemonName" class="col-sm-2 control-label">ポケモンのなまえ</label>
+        <label for="selectPokemon" class="col-sm-2 control-label">ポケモンのなまえ</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputPokemonName" placeholder="ex: ロトム">
+          <select class="form-control" id="selectPokemon">
+            {{#each pokemons}}
+              <option value="{{pokemon_id}}">{{pokemon_name}}</option>
+            {{/each}}
+          </select>
         </div>
       </div>
       <div class="form-group">
-        <label for="inputMove1" class="col-sm-2 control-label">おぼえているわざ１</label>
+        <label for="selectAbilites" class="col-sm-2 control-label">とくせい</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputMove1" placeholder="ex: かみなり">
+          <select class="form-control" id="selectAbilites">
+            {{#each abilites}}
+              <option value="{{abilites_id}}">{{abilites_name}}</option>
+            {{/each}}
+          </select>
         </div>
       </div>
       <div class="form-group">
-        <label for="inputMove2" class="col-sm-2 control-label">おぼえているわざ２</label>
+        <label for="selectMove1" class="col-sm-2 control-label">おぼえているわざ１</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputMove2" placeholder="ex: ハイドロポンプ">
+          <select class="form-control" id="selectMove1">
+            {{#each moves}}
+              <option value="{{move_id}}">{{move_name}}</option>
+            {{/each}}
+          </select>
         </div>
       </div>
       <div class="form-group">
-        <label for="inputMove3" class="col-sm-2 control-label">おぼえているわざ３</label>
+        <label for="selectMove2" class="col-sm-2 control-label">おぼえているわざ２</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputMove3" placeholder="ex: あくのはどう">
+          <select class="form-control" id="selectMove2">
+          {{#each moves}}
+            <option value="{{move_id}}">{{move_name}}</option>
+          {{/each}}
+          </select>
         </div>
       </div>
       <div class="form-group">
-        <label for="inputMove4" class="col-sm-2 control-label">おぼえているわざ４</label>
+        <label for="selectMove3" class="col-sm-2 control-label">おぼえているわざ３</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputMove4" placeholder="ex: ほうでん">
+          <select class="form-control" id="selectMove3">
+          {{#each moves}}
+            <option value="{{move_id}}">{{move_name}}</option>
+          {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="selectMove4" class="col-sm-2 control-label">おぼえているわざ４</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="selectMove4">
+            {{#each moves}}
+              <option value="{{move_id}}">{{move_name}}</option>
+            {{/each}}
+          </select>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-10 col-sm-offset-2">
-          <button type="button" class="btn btn-primary btn-lg btn-block">とうろくする</button>
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="addPokepage">とうろくする</button>
         </div>
       </div>
     </form>
