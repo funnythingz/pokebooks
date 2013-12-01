@@ -2,12 +2,17 @@
   <section class="container">
 
     <section class="unit">
+      <a href="{{pathFor 'post'}}" class="btn btn-primary btn-lg btn-block">投稿する</a>
+    </section>
+
+    <section class="unit">
     {{#each pokemons}}
-      <article class="cassette" id="{{id}}">
+      <article class="cassette" id="{{_id}}">
+      <a href="{{pathFor 'pokemon'}}">
         <div class="inner">
           <div class="flexible">
             <div class="wrap-icon36">
-              <span class="pokemon-sprite no{{No}}"></span>
+              <span class="pokemon-sprite no{{pokemon}}"></span>
             </div>
             <div class="item">
               <h2 class="media-heading h5"><span class="">Lv.{{Lv}}</span> <span>{{name}}</span></h2>
@@ -19,6 +24,7 @@
             </div>
           </div>
         </div>
+      </a>
       </article>
       {{/each}}
     </section>

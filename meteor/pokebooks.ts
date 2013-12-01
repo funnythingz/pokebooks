@@ -1,7 +1,7 @@
-/// <reference path="../packages/typescript-libs/meteor.d.ts" />
-/// <reference path="../packages/typescript-libs/ironrouter.d.ts" />
-/// <reference path="../packages/typescript-libs/node.d.ts" />
-/// <reference path="../packages/typescript-libs/jquery.d.ts" />
+/// <reference path="./packages/typescript-libs/meteor.d.ts" />
+/// <reference path="./packages/typescript-libs/ironrouter.d.ts" />
+/// <reference path="./packages/typescript-libs/node.d.ts" />
+/// <reference path="./packages/typescript-libs/jquery.d.ts" />
 
 /**
 * DDD
@@ -102,8 +102,8 @@ module Domain {
     export class PokemonPage {
 
         constructor(public pokemon: Pokemon,
-                    public moves: Move[],
-                    public abilites: Abilites) {}
+                    public abilites: Abilites,
+                    public moves: Move[]) {}
     
     }
 }
@@ -180,7 +180,7 @@ var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
 var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
 var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
 
-var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, [Move.thunder, Move.hydroPump, Move.darkPulse, Move.discharge], Abilites.levitate);
+var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, Abilites.levitate, [Move.thunder, Move.hydroPump, Move.darkPulse, Move.discharge]);
 console.log(pokemonPage);
 
 console.log(rotom1);
@@ -213,6 +213,19 @@ module Dictionary {
 
 }
 
+module Collections {
+
+    export interface IPokemonPage {
+        _id?: string;
+        pokemon?: string;
+        abilites?: string;
+        moves?: string[];
+        created_at?: any;
+    }
+
+    export var PokebookCollection = new Meteor.Collection<IPokemonPage>('pokebook');
+}
+
 
 /**
 * Helpers
@@ -241,9 +254,13 @@ module Helpers {
 
 declare var ItemsController;
 
+
 /**
-* Router
+* Client
 */
+if(Meteor.isClient) {
+
+// Router
 Router.map(function() {
 
     this.route('pokemons', {
@@ -258,7 +275,7 @@ Router.map(function() {
     });
 
     this.route('pokemon', {
-        path: '/pokemon',
+        path: '/pokemon/:_id',
         layoutTemplate: 'layout',
         template: 'pokemonTpl',
         yieldTemplates: {
@@ -303,6 +320,11 @@ Template['footerTpl'].helpers({
 });
 
 Template['pokemonsTpl'].helpers({
+
+    pokemons: () => {
+        return Collections.PokebookCollection.find({}, {sort: {created_at: -1}});
+    }
+    /**
     pokemons: () => {
         return [
             {id: 'pokemon1', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
@@ -310,12 +332,7 @@ Template['pokemonsTpl'].helpers({
             {id: 'pokemon3', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
             {id: 'pokemon4', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'}
         ];
-    }
-});
-Template['pokemonsTpl'].events({
-    'click .cassette': () => {
-        console.log('hoge');
-    }
+    }/**/
 });
 
 Template['pokemonTpl'].helpers({
@@ -376,10 +393,22 @@ Template['postTpl'].events({
         var selectedPokemon: string =  $('#selectPokemon').val();
         var selectedAbilites: string = $('#selectAbilites').val();
 
-        var selectedMoveList: string[] = Helpers.ArrayUtil.uniq([$('#selectMove1').val(),
-                                                                 $('#selectMove2').val(),
-                                                                 $('#selectMove3').val(),
-                                                                 $('#selectMove4').val()]);
+        var selectedMoves: string[] = Helpers.ArrayUtil.uniq([$('#selectMove1').val(),
+                                                              $('#selectMove2').val(),
+                                                              $('#selectMove3').val(),
+                                                              $('#selectMove4').val()]);
+
+        Collections.PokebookCollection.insert({
+            pokemon: selectedPokemon,
+            abilites: selectedAbilites,
+            moves: selectedMoves,
+            created_at: (new Date()).getTime()
+        });
+
+        console.log(Collections.PokebookCollection.find({}, {sort: {created_at: -1}}));
     }
 
 });
+
+/* end: Client */
+}
