@@ -155,10 +155,60 @@ module Factory {
             }
         }
     }
+
+    export class MoveFactory {
+
+        createMove(move: string): Domain.Move {
+            switch(move) {
+                case 'thunder':
+                    return MoveList.thunder;
+                case 'hydroPump':
+                    return MoveList.hydroPump;
+                case 'darkPulse':
+                    return MoveList.darkPulse;
+                case 'discharge':
+                    return MoveList.discharge;
+            }
+        }
+    
+    }
+
+    export class AbilitesFactory {
+
+        createAbilites(abilites: string): Domain.Abilites {
+            switch(abilites) {
+                case 'levitate':
+                    return AbilitesList.levitate;
+            }
+        }
+    
+    }
+
+    export class PokemonPageFactory {
+
+        createPokemonPages(responseFromPokebookCollection: any): Domain.PokemonPage[] {
+
+            var pokemonPages: Domain.PokemonPage[] = [];
+            var pokemonFactory = new Factory.PokemonFactory();
+            var abilitesFactory = new Factory.AbilitesFactory();
+            var moveFactory = new Factory.MoveFactory();
+
+            responseFromPokebookCollection.forEach((pokebookCollection) => {
+                var pokemon = pokemonFactory.createPokemon(pokebookCollection._id, pokebookCollection.pokemon);
+                var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
+                var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
+                    return moveFactory.createMove(val);
+                });
+                pokemonPages.push(new Domain.PokemonPage(pokemon, abilites, moves));
+            });
+            console.log(pokemonPages);
+            return pokemonPages;
+        }
+    }
 }
 
 // Move
-module Move {
+module MoveList {
 
     export var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'), new Domain.PowerPoint('10'));
     export var hydroPump: Domain.Move = new Domain.Move(new Domain.Name('ハイドロポンプ'), new Domain.PowerPoint('5'));
@@ -168,7 +218,7 @@ module Move {
 }
 
 // Abilites
-module Abilites {
+module AbilitesList {
 
     export var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
 
@@ -180,7 +230,7 @@ var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
 var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
 var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
 
-var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, Abilites.levitate, [Move.thunder, Move.hydroPump, Move.darkPulse, Move.discharge]);
+var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, AbilitesList.levitate, [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
 
 /**
 * Test
@@ -340,10 +390,9 @@ Template['pokemonsTpl'].helpers({
 
     pokemons: () => {
         var pokebook = Collections.PokebookCollection.find({}, {sort: {created_at: -1}});
-        pokebook.forEach(function(pb) {
-            console.log(pb);
-        });
-        return pokebook;
+        var pokemonPageFactory = new Factory.PokemonPageFactory();
+
+        return pokemonPageFactory.createPokemonPages(pokebook);
     }
     /**
     pokemons: () => {
