@@ -14,7 +14,24 @@
 
 <template name="headerTpl">
   <header class="container">
-    <h1 class="logo">{{title}}</h1>
+    <div class="flexible">
+      <div class="item">
+        <h1 class="logo">
+          <a href="{{pathFor 'pokemons'}}">{{title}}</a>
+        </h1>
+      </div>
+      <div class="wrap-icon36 middle text-right">
+      {{#if postFlag}}
+        <a href="{{pathFor 'post'}}" class="btn btn-default">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      {{else}}
+        <a href="{{pathFor 'pokemons'}}" class="btn btn-default">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+      {{/if}}
+      </div>
+    </div>
   </header>
 </template>
 

@@ -15,6 +15,14 @@ body {
 
 .logo {
   font-family: 'Bonbon', cursive;
+
+  a {
+    color: #345;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .copyright {
@@ -82,4 +90,8 @@ body {
   @extend %_bold;
 }
 ._move {
+}
+
+.btn {
+  line-height: 14px;
 }

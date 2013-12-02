@@ -276,6 +276,10 @@ Router.map(function() {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
+        },
+
+        data: {
+            postFlag: true
         }
     });
 
@@ -287,6 +291,10 @@ Router.map(function() {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
+        },
+
+        data: {
+            postFlag: false
         }
     });
 
@@ -298,6 +306,10 @@ Router.map(function() {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
+        },
+
+        data: {
+            postFlag: false
         }
     });
 
