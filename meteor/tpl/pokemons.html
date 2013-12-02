@@ -3,18 +3,18 @@
 
     <section class="unit">
     {{#each pokemons}}
-      <article class="cassette" id="{{_id}}">
-      <a href="{{pathFor 'pokemon'}}">
+      <article class="cassette" id="{{pokemon.id.value}}">
+      <a href="/pokemon/{{pokemon.id.value}}">
         <div class="inner">
           <div class="flexible">
             <div class="wrap-icon36">
-              <span class="pokemon-sprite no{{pokemon}}"></span>
+              <span class="pokemon-sprite no{{pokedexNumber.count}}"></span>
             </div>
             <div class="item">
-              <h2 class="media-heading h5"><span class="">Lv.{{Lv}}</span> <span>{{name}}</span></h2>
+              <h2 class="media-heading h5"><span class="">Lv.{{level.count}}</span> <span>{{pokemon.name.name}}</span></h2>
               <div>
-                {{#each type}}
-                <span class="type-{{name}}"></span>
+                {{#each pokemon.types}}
+                <span class="type-{{type}}"></span>
                 {{/each}}
               </div>
             </div>

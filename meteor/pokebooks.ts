@@ -42,20 +42,14 @@ module Domain {
 
     export class Name {
 
-        constructor(private name: string) {}
+        constructor(public name: string) {}
 
-        getValue(): string {
-            return this.name;
-        }
     }
 
     export class Type {
 
-        constructor(private type: string) {}
+        constructor(public type: string) {}
 
-        getValue(): string {
-            return this.type;
-        }
     }
 
     export class Pokemon extends DDD.Entity<DDD.Identity<string>> {
@@ -77,6 +71,18 @@ module Domain {
 
     }
 
+    export class PokedexNumber {
+
+        constructor(public count: string) {}
+
+    }
+
+    export class Level {
+
+        constructor(public count: string) {}
+
+    }
+
     export class Move {
 
         constructor(public name: Name,
@@ -86,11 +92,8 @@ module Domain {
 
     export class PowerPoint {
 
-        constructor(private pp: string) {}
+        constructor(public pp: string) {}
 
-        getValue(): string {
-            return this.pp;
-        }
     }
 
     export class Abilites {
@@ -102,6 +105,8 @@ module Domain {
     export class PokemonPage {
 
         constructor(public pokemon: Pokemon,
+                    public pokedexNumber: PokedexNumber,
+                    public level: Level,
                     public abilites: Abilites,
                     public moves: Move[]) {}
     
@@ -194,12 +199,14 @@ module Factory {
             var moveFactory = new Factory.MoveFactory();
 
             responseFromPokebookCollection.forEach((pokebookCollection) => {
-                var pokemon = pokemonFactory.createPokemon(pokebookCollection._id, pokebookCollection.pokemon);
+                var pokemon = pokemonFactory.createPokemon(pokebookCollection._id, pokebookCollection.pokedexNumber);
+                var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
+                var level = new Domain.Level(pokebookCollection.level);
                 var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
                 var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
                     return moveFactory.createMove(val);
                 });
-                pokemonPages.push(new Domain.PokemonPage(pokemon, abilites, moves));
+                pokemonPages.push(new Domain.PokemonPage(pokemon, pokedexNumber, level, abilites, moves));
             });
             console.log(pokemonPages);
             return pokemonPages;
@@ -229,8 +236,14 @@ var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
 var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
 var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
 var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
+var pokedexNumber = new Domain.PokedexNumber('479');
+var level = new Domain.Level('69');
 
-var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1, AbilitesList.levitate, [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
+var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1,
+                                                             pokedexNumber,
+                                                             level,
+                                                             AbilitesList.levitate,
+                                                             [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
 
 /**
 * Test
@@ -394,15 +407,7 @@ Template['pokemonsTpl'].helpers({
 
         return pokemonPageFactory.createPokemonPages(pokebook);
     }
-    /**
-    pokemons: () => {
-        return [
-            {id: 'pokemon1', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
-            {id: 'pokemon2', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
-            {id: 'pokemon3', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'},
-            {id: 'pokemon4', No: '479', Lv: '10', name: 'ロトム', type: [{name: 'electric'}, {name: 'water'}], ability: 'ふゆう'}
-        ];
-    }/**/
+
 });
 
 Template['pokemonTpl'].helpers({
@@ -447,6 +452,14 @@ Template['postTpl'].helpers({
         return Dictionary.pokemons;
     },
 
+    levels: () => {
+        var levelList: number[] = [];
+        for(var i = 1; i <= 100; i++) {
+            levelList.push(i);
+        }
+        return levelList;
+    },
+
     abilites: () => {
         return Dictionary.abilites;
     },
@@ -461,6 +474,7 @@ Template['postTpl'].events({
     'click #addPokepage': () => {
 
         var selectedPokemon: string =  $('#selectPokemon').val();
+        var selectedLevel: string = $('#selectLevel').val();
         var selectedAbilites: string = $('#selectAbilites').val();
 
         var selectedMoves: string[] = Helpers.ArrayUtil.uniq([$('#selectMove1').val(),
@@ -469,7 +483,8 @@ Template['postTpl'].events({
                                                               $('#selectMove4').val()]);
 
         Collections.PokebookCollection.insert({
-            pokemon: selectedPokemon,
+            pokedexNumber: selectedPokemon,
+            level: selectedLevel,
             abilites: selectedAbilites,
             moves: selectedMoves,
             created_at: (new Date()).getTime()

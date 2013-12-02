@@ -13,16 +13,16 @@ body {
   font-family: 'Questrial', sans-serif;
 }
 
+a {
+  color: #345;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .logo {
   font-family: 'Bonbon', cursive;
-
-  a {
-    color: #345;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
 }
 
 .copyright {
