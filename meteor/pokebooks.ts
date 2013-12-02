@@ -189,9 +189,9 @@ module Factory {
     
     }
 
-    export class PokemonPageFactory {
+    export class PokemonListFactory {
 
-        createPokemonPages(responseFromPokebookCollection: any): Domain.PokemonPage[] {
+        createPokemonList(responseFromPokebookCollection: any): Domain.PokemonPage[] {
 
             var pokemonPages: Domain.PokemonPage[] = [];
             var pokemonFactory = new Factory.PokemonFactory();
@@ -208,8 +208,31 @@ module Factory {
                 });
                 pokemonPages.push(new Domain.PokemonPage(pokemon, pokedexNumber, level, abilites, moves));
             });
-            console.log(pokemonPages);
             return pokemonPages;
+        }
+    }
+
+    export class PokemonPageFactory {
+
+        createPokemonPage(pokebookCollection: any): Domain.PokemonPage {
+
+            var pokemonPage: Domain.PokemonPage;
+
+            var pokemonFactory = new Factory.PokemonFactory();
+            var abilitesFactory = new Factory.AbilitesFactory();
+            var moveFactory = new Factory.MoveFactory();
+
+            var pokemon = pokemonFactory.createPokemon(pokebookCollection._id, pokebookCollection.pokedexNumber);
+            var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
+            var level = new Domain.Level(pokebookCollection.level);
+            var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
+            var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
+                return moveFactory.createMove(val);
+            });
+
+            console.log(pokemonPage);
+
+            return new Domain.PokemonPage(pokemon, pokedexNumber, level, abilites, moves)
         }
     }
 }
@@ -356,8 +379,10 @@ Router.map(function() {
             'footerTpl': {to: 'footer'}
         },
 
-        data: {
-            postFlag: false
+        data: () => {
+            return {
+                postFlag: false
+            }
         }
     });
 
@@ -401,17 +426,26 @@ Template['footerTpl'].helpers({
 
 Template['pokemonsTpl'].helpers({
 
-    pokemons: () => {
+    pokemonList: () => {
         var pokebook = Collections.PokebookCollection.find({}, {sort: {created_at: -1}});
-        var pokemonPageFactory = new Factory.PokemonPageFactory();
+        var pokemonListFactory = new Factory.PokemonListFactory();
 
-        return pokemonPageFactory.createPokemonPages(pokebook);
+        return pokemonListFactory.createPokemonList(pokebook);
     }
 
 });
 
 Template['pokemonTpl'].helpers({
+/**
+    pokemonPage: () => {
+    },
+
     id: () => {
+    var pokebook = Collections.PokebookCollection.findOne({});
+        console.log(pokebook);
+        var pokemonPageFactory = new Factory.PokemonPageFactory();
+
+        //return pokemonPageFactory.createPokemonPage(pokebook);
         return 'pokemon1';
     },
 
@@ -433,7 +467,8 @@ Template['pokemonTpl'].helpers({
 
     ability: () => {
         return 'ふゆう';
-    },
+    }
+    /**/
 });
 Template['moveTpl'].helpers({
     moves: () => {
