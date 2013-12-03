@@ -1,21 +1,21 @@
 <template name="pokemonTpl">
   <section class="container">
     <section class="unit">
-      <article class="cassette" id="{{id}}">
+      <article class="cassette" id="{{pokemonPage.pokemon.id.value}}">
         <div class="inner">
           <div class="flexible">
             <div class="wrap-icon96">
-              <span class="pokemon-sprite no{{No}}"></span>
+              <span class="pokemon-sprite no{{pokemonPage.pokedexNumber.count}}"></span>
             </div>
             <div class="item">
-              <div class="sentence"><span class="_number">No.{{No}}</span></div>
-              <div class="sentence"><span class="_name">{{name}}</span><small class="_level">Lv.{{Lv}}</small></div>
+              <div class="sentence"><span class="_number">No.{{pokemonPage.pokedexNumber.count}}</span></div>
+              <div class="sentence"><span class="_name">{{pokemonPage.pokemon.name.name}}</span><small class="_level">Lv.{{pokemonPage.level.count}}</small></div>
               <div class="sentence spacing">
-                {{#each types}}
+                {{#each pokemonPage.pokemon.types}}
                 <span class="type-{{type}}"></span>
                 {{/each}}
               </div>
-              <div class="sentence">{{ability}}</div>
+              <div class="sentence">{{pokemonPage.abilites.name.name}}</div>
             </div>
           </div>
         </div>

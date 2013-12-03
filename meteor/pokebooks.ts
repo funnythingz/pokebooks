@@ -215,8 +215,9 @@ module Factory {
     export class PokemonPageFactory {
 
         createPokemonPage(pokebookCollection: any): Domain.PokemonPage {
-
-            var pokemonPage: Domain.PokemonPage;
+            if(typeof pokebookCollection === 'undefined') {
+                return null;
+            }
 
             var pokemonFactory = new Factory.PokemonFactory();
             var abilitesFactory = new Factory.AbilitesFactory();
@@ -229,8 +230,6 @@ module Factory {
             var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
                 return moveFactory.createMove(val);
             });
-
-            console.log(pokemonPage);
 
             return new Domain.PokemonPage(pokemon, pokedexNumber, level, abilites, moves)
         }
@@ -253,7 +252,7 @@ module AbilitesList {
     export var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
 
 }
-
+/**
 var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
 var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
 var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
@@ -271,7 +270,7 @@ var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1,
 /**
 * Test
 */
-/**
+/*y
 console.log(pokemonPage);
 
 console.log(rotom1);
@@ -394,14 +393,9 @@ Router.map(function() {
         },
 
         data: () => {
-            location.pathname.match(/\/pokemon\/(.*?)$/);
-            var _id = RegExp.$1;
-
+            
             var datas = {
-
-                postFlag: false,
-
-                id: _id
+                postFlag: false
             }
 
             return datas;
@@ -449,39 +443,16 @@ Template['footerTpl'].helpers({
 });
 
 Template['pokemonTpl'].helpers({
-/**
     pokemonPage: () => {
-    },
+        location.pathname.match(/\/pokemon\/(.*?)$/);
+        var _id = RegExp.$1;
 
-    id: () => {
-    var pokebook = Collections.PokebookCollection.findOne({});
-        console.log(pokebook);
+        var pokebook = Collections.PokebookCollection.findOne({_id: _id});
         var pokemonPageFactory = new Factory.PokemonPageFactory();
+        var pokemonPage = pokemonPageFactory.createPokemonPage(pokebook);
 
-        //return pokemonPageFactory.createPokemonPage(pokebook);
-        return 'pokemon1';
-    },
-
-    No: () => {
-        return '479';
-    },
-
-    Lv: () => {
-        return '10';
-    },
-
-    name: () => {
-        return 'ロトム';
-    },
-
-    types: () => {
-        return [{type: 'electric'}, {type: 'water'}];
-    },
-
-    ability: () => {
-        return 'ふゆう';
+        return pokemonPage;
     }
-    /**/
 });
 Template['moveTpl'].helpers({
     moves: () => {
