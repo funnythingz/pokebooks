@@ -140,6 +140,14 @@ module PokemonList {
         }
     }
 
+    export class Genesect extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('ゲノセクト'),
+                  [new Domain.Type('bug'), new Domain.Type('steel')]);
+        }
+    }
+
     export class Greninja extends Domain.Pokemon {
         constructor(id: string) {
             super(new Domain.PokemonID(id),
@@ -163,6 +171,8 @@ module Factory {
                     return new PokemonList.Charizard(hash);
                 case '479':
                     return new PokemonList.Rotom(hash);
+                case '649':
+                    return new PokemonList.Genesect(hash);
                 case '658':
                     return new PokemonList.Rotom(hash);
             }
@@ -317,6 +327,7 @@ module Dictionary {
     export var pokemons = [
         {pokemon_name: 'リザードン', pokemon_id: '006'},
         {pokemon_name: 'ロトム', pokemon_id: '479'},
+        {pokemon_name: 'ゲノセクト', pokemon_id: '649'},
         {pokemon_name: 'ゲッコウガ', pokemon_id: '658'}
     ];
 
