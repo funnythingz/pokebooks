@@ -184,7 +184,7 @@ module Factory {
                 case '649':
                     return new PokemonList.Genesect(hash);
                 case '658':
-                    return new PokemonList.Rotom(hash);
+                    return new PokemonList.Greninja(hash);
             }
         }
     }
