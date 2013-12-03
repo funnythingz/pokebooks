@@ -269,10 +269,11 @@ module Factory {
 // Move
 module MoveList {
 /**
-            {type: 'electric', moveType: 'physical', name: 'かみなり'},
-            {type: 'water', moveType: 'special', name: 'ハイドロポンプ'},
-            {type: 'dark', moveType: 'special', name: 'あくのはどう'},
-            {type: 'electric', moveType: 'status', name: 'ほうでん'}
+* moveType list
+*
+物理: 'physical'
+特殊: 'special'
+変化: 'status'
 /**/
     export var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'),
                                                       new Domain.Type('electric'),
@@ -302,34 +303,6 @@ module AbilitesList {
     export var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
 
 }
-
-/**
-* Test
-*/
-/**
-var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
-var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
-var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
-var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
-var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
-var pokedexNumber = new Domain.PokedexNumber('479');
-var level = new Domain.Level('69');
-
-var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1,
-                                                             pokedexNumber,
-                                                             level,
-                                                             AbilitesList.levitate,
-                                                             [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
-
-console.log(pokemonPage);
-
-console.log(rotom1);
-console.log(rotom2);
-console.log(charizard1);
-console.log(charizard2);
-console.log(rotom1.equals(rotom1));
-console.log(rotom1.equals(rotom2));
-/**/
 
 /**
 * Dictionary
@@ -558,4 +531,32 @@ Template['postTpl'].events({
 });
 
 /* end: Client */
+
+/**
+* Test
+*/
+/**
+var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
+var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
+var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
+var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
+var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
+var pokedexNumber = new Domain.PokedexNumber('479');
+var level = new Domain.Level('69');
+
+var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1,
+                                                             pokedexNumber,
+                                                             level,
+                                                             AbilitesList.levitate,
+                                                             [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
+
+console.log(pokemonPage);
+
+console.log(rotom1);
+console.log(rotom2);
+console.log(charizard1);
+console.log(charizard2);
+console.log(rotom1.equals(rotom1));
+console.log(rotom1.equals(rotom2));
+/**/
 }
