@@ -315,7 +315,9 @@ console.log(rotom1.equals(rotom2));
 module Dictionary {
 
     export var pokemons = [
-        {pokemon_name: 'ロトム', pokemon_id: '479'}
+        {pokemon_name: 'リザードン', pokemon_id: '006'},
+        {pokemon_name: 'ロトム', pokemon_id: '479'},
+        {pokemon_name: 'ゲッコウガ', pokemon_id: '658'}
     ];
 
     export var moves = [
