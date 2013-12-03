@@ -140,6 +140,14 @@ module PokemonList {
         }
     }
 
+    export class Palkia extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('パルキア'),
+                  [new Domain.Type('water'), new Domain.Type('dragon')]);
+        }
+    }
+
     export class Genesect extends Domain.Pokemon {
         constructor(id: string) {
             super(new Domain.PokemonID(id),
@@ -171,6 +179,8 @@ module Factory {
                     return new PokemonList.Charizard(hash);
                 case '479':
                     return new PokemonList.Rotom(hash);
+                case '484':
+                    return new PokemonList.Palkia(hash);
                 case '649':
                     return new PokemonList.Genesect(hash);
                 case '658':
@@ -241,7 +251,9 @@ module Factory {
             var abilitesFactory = new Factory.AbilitesFactory();
             var moveFactory = new Factory.MoveFactory();
 
-            var pokemon = pokemonFactory.createPokemon(pokebookCollection._id, pokebookCollection.pokedexNumber);
+            var pokemon = pokemonFactory.createPokemon(pokebookCollection._id,
+                                                       pokebookCollection.pokedexNumber);
+
             var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
             var level = new Domain.Level(pokebookCollection.level);
             var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
@@ -327,6 +339,7 @@ module Dictionary {
     export var pokemons = [
         {pokemon_name: 'リザードン', pokemon_id: '006'},
         {pokemon_name: 'ロトム', pokemon_id: '479'},
+        {pokemon_name: 'パルキア', pokemon_id: '484'},
         {pokemon_name: 'ゲノセクト', pokemon_id: '649'},
         {pokemon_name: 'ゲッコウガ', pokemon_id: '658'}
     ];
