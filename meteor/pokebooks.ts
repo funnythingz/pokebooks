@@ -364,8 +364,22 @@ Router.map(function() {
             'footerTpl': {to: 'footer'}
         },
 
-        data: {
-            postFlag: true
+        data: () => {
+
+            var datas = {
+
+                postFlag: true,
+
+                pokemonList: () => {
+                    var pokebook = Collections.PokebookCollection.find({}, {sort: {created_at: -1}});
+                    var pokemonListFactory = new Factory.PokemonListFactory();
+
+                    return pokemonListFactory.createPokemonList(pokebook);
+                }
+
+            }
+
+            return datas;
         }
     });
 
@@ -380,9 +394,17 @@ Router.map(function() {
         },
 
         data: () => {
-            return {
-                postFlag: false
+            location.pathname.match(/\/pokemon\/(.*?)$/);
+            var _id = RegExp.$1;
+
+            var datas = {
+
+                postFlag: false,
+
+                id: _id
             }
+
+            return datas;
         }
     });
 
@@ -396,8 +418,10 @@ Router.map(function() {
             'footerTpl': {to: 'footer'}
         },
 
-        data: {
-            postFlag: false
+        data: () => {
+            return {
+                postFlag: false
+            }
         }
     });
 
@@ -422,17 +446,6 @@ Template['footerTpl'].helpers({
     copyright: () => {
         return "funnythingz";
     }
-});
-
-Template['pokemonsTpl'].helpers({
-
-    pokemonList: () => {
-        var pokebook = Collections.PokebookCollection.find({}, {sort: {created_at: -1}});
-        var pokemonListFactory = new Factory.PokemonListFactory();
-
-        return pokemonListFactory.createPokemonList(pokebook);
-    }
-
 });
 
 Template['pokemonTpl'].helpers({
