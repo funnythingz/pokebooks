@@ -5,42 +5,38 @@
         <div class="inner">
           <div class="flexible">
             <div class="wrap-icon96">
-              <span class="pokemon-sprite no{{pokemonPage.pokedexNumber.count}}"></span>
+              <span class="pokemon-sprite no{{pokemonPage.pokedexNumber.value}}"></span>
             </div>
             <div class="item">
-              <div class="sentence"><span class="_number">No.{{pokemonPage.pokedexNumber.count}}</span></div>
-              <div class="sentence"><span class="_name">{{pokemonPage.pokemon.name.name}}</span><small class="_level">Lv.{{pokemonPage.level.count}}</small></div>
+              <div class="sentence"><span class="_number">No.{{pokemonPage.pokedexNumber.value}}</span></div>
+              <div class="sentence"><span class="_name">{{pokemonPage.pokemon.name.value}}</span><small class="_level">Lv.{{pokemonPage.level.value}}</small></div>
               <div class="sentence spacing">
                 {{#each pokemonPage.pokemon.types}}
                 <span class="type-{{type}}"></span>
                 {{/each}}
               </div>
-              <div class="sentence">{{pokemonPage.abilites.name.name}}</div>
+              <div class="sentence">{{pokemonPage.abilites.name.value}}</div>
             </div>
           </div>
         </div>
         <div class="inner">
-          {{> moveTpl}}
+          {{#each pokemonPage.moves}}
+          <article class="cassette">
+            <div class="inner">
+              <div class="flexible">
+                <div class="item middle">
+                  <div class="sentence">
+                    <span class="type-{{type.value}} middle"></span>
+                    <span class="move-{{moveType.value}}"></span>
+                    <span class="_move sentence">{{name.value}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          {{/each}}
         </div>
       </article>
     </section>
   </section>
-</template>
-
-<template name="moveTpl">
-  {{#each moves}}
-  <article class="cassette" id="{{id}}">
-    <div class="inner">
-      <div class="flexible">
-        <div class="item middle">
-          <div class="sentence">
-            <span class="type-{{type}} middle"></span>
-            <span class="move-{{moveType}}"></span>
-            <span class="_move sentence">{{name}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article>
-  {{/each}}
 </template>

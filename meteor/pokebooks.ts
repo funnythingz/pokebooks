@@ -42,13 +42,13 @@ module Domain {
 
     export class Name {
 
-        constructor(public name: string) {}
+        constructor(public value: string) {}
 
     }
 
     export class Type {
 
-        constructor(public type: string) {}
+        constructor(public value: string) {}
 
     }
 
@@ -73,20 +73,28 @@ module Domain {
 
     export class PokedexNumber {
 
-        constructor(public count: string) {}
+        constructor(public value: string) {}
 
     }
 
     export class Level {
 
-        constructor(public count: string) {}
+        constructor(public value: string) {}
 
     }
 
     export class Move {
 
         constructor(public name: Name,
+                    public type: Type,
+                    public moveType: MoveType,
                     public pp: PowerPoint) {}
+
+    }
+
+    export class MoveType {
+
+        constructor(public value: string) {}
 
     }
 
@@ -238,11 +246,31 @@ module Factory {
 
 // Move
 module MoveList {
+/**
+            {type: 'electric', moveType: 'physical', name: 'かみなり'},
+            {type: 'water', moveType: 'special', name: 'ハイドロポンプ'},
+            {type: 'dark', moveType: 'special', name: 'あくのはどう'},
+            {type: 'electric', moveType: 'status', name: 'ほうでん'}
+/**/
+    export var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'),
+                                                      new Domain.Type('electric'),
+                                                      new Domain.MoveType('special'),
+                                                      new Domain.PowerPoint('10'));
 
-    export var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'), new Domain.PowerPoint('10'));
-    export var hydroPump: Domain.Move = new Domain.Move(new Domain.Name('ハイドロポンプ'), new Domain.PowerPoint('5'));
-    export var darkPulse: Domain.Move = new Domain.Move(new Domain.Name('あくのはどう'), new Domain.PowerPoint('15'));
-    export var discharge: Domain.Move = new Domain.Move(new Domain.Name('ほうでん'), new Domain.PowerPoint('10'));
+    export var hydroPump: Domain.Move = new Domain.Move(new Domain.Name('ハイドロポンプ'),
+                                                        new Domain.Type('water'),
+                                                        new Domain.MoveType('special'),
+                                                        new Domain.PowerPoint('5'));
+
+    export var darkPulse: Domain.Move = new Domain.Move(new Domain.Name('あくのはどう'),
+                                                        new Domain.Type('dark'),
+                                                        new Domain.MoveType('special'),
+                                                        new Domain.PowerPoint('15'));
+
+    export var discharge: Domain.Move = new Domain.Move(new Domain.Name('ほうでん'),
+                                                        new Domain.Type('electric'),
+                                                        new Domain.MoveType('special'),
+                                                        new Domain.PowerPoint('10'));
 
 }
 
@@ -252,6 +280,10 @@ module AbilitesList {
     export var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
 
 }
+
+/**
+* Test
+*/
 /**
 var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
 var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
@@ -267,10 +299,6 @@ var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1,
                                                              AbilitesList.levitate,
                                                              [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
 
-/**
-* Test
-*/
-/*y
 console.log(pokemonPage);
 
 console.log(rotom1);
@@ -452,16 +480,6 @@ Template['pokemonTpl'].helpers({
         var pokemonPage = pokemonPageFactory.createPokemonPage(pokebook);
 
         return pokemonPage;
-    }
-});
-Template['moveTpl'].helpers({
-    moves: () => {
-        return [
-            {id: 'move1', type: 'electric', moveType: 'physical', name: 'かみなり'},
-            {id: 'move1', type: 'water', moveType: 'special', name: 'ハイドロポンプ'},
-            {id: 'move1', type: 'dark', moveType: 'special', name: 'あくのはどう'},
-            {id: 'move1', type: 'electric', moveType: 'status', name: 'ほうでん'}
-        ];
     }
 });
 
