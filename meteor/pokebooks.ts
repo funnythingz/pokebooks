@@ -227,14 +227,20 @@ module Factory {
             var moveFactory = new Factory.MoveFactory();
 
             responseFromPokebookCollection.forEach((pokebookCollection) => {
-                var pokemon = pokemonFactory.createPokemon(pokebookCollection._id, pokebookCollection.pokedexNumber);
+                var pokemon = pokemonFactory.createPokemon(pokebookCollection._id,
+                                                           pokebookCollection.pokedexNumber);
+
                 var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
                 var level = new Domain.Level(pokebookCollection.level);
                 var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
                 var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
                     return moveFactory.createMove(val);
                 });
-                pokemonPages.push(new Domain.PokemonPage(pokemon, pokedexNumber, level, abilites, moves));
+                pokemonPages.push(new Domain.PokemonPage(pokemon,
+                                                         pokedexNumber,
+                                                         level,
+                                                         abilites,
+                                                         moves));
             });
             return pokemonPages;
         }
