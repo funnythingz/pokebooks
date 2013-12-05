@@ -227,21 +227,27 @@ module Factory {
             var moveFactory = new Factory.MoveFactory();
 
             responseFromPokebookCollection.forEach((pokebookCollection) => {
+
                 var pokemon = pokemonFactory.createPokemon(pokebookCollection._id,
                                                            pokebookCollection.pokedexNumber);
 
                 var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
+
                 var level = new Domain.Level(pokebookCollection.level);
+
                 var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
+
                 var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
                     return moveFactory.createMove(val);
                 });
+
                 pokemonPages.push(new Domain.PokemonPage(pokemon,
                                                          pokedexNumber,
                                                          level,
                                                          abilites,
                                                          moves));
             });
+
             return pokemonPages;
         }
     }
@@ -249,25 +255,32 @@ module Factory {
     export class PokemonPageFactory {
 
         createPokemonPage(pokebookCollection: any): Domain.PokemonPage {
+
             if(typeof pokebookCollection === 'undefined') {
                 return null;
             }
 
             var pokemonFactory = new Factory.PokemonFactory();
+
             var abilitesFactory = new Factory.AbilitesFactory();
+
             var moveFactory = new Factory.MoveFactory();
 
             var pokemon = pokemonFactory.createPokemon(pokebookCollection._id,
                                                        pokebookCollection.pokedexNumber);
 
             var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
+
             var level = new Domain.Level(pokebookCollection.level);
+
             var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
+
             var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
                 return moveFactory.createMove(val);
             });
 
             return new Domain.PokemonPage(pokemon, pokedexNumber, level, abilites, moves)
+
         }
     }
 }
@@ -375,6 +388,7 @@ module Helpers {
     
 }
 
+// Definitions
 declare var ItemsController;
 
 
