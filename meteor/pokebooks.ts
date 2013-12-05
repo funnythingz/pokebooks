@@ -491,6 +491,7 @@ Template['footerTpl'].helpers({
 
 Template['pokemonTpl'].helpers({
     pokemonPage: () => {
+        // FIXME: `this.params._id` がTypeScriptだととれないっぽい？ので仕方なくこの対応
         location.pathname.match(/\/pokemon\/(.*?)$/);
         var _id = RegExp.$1;
 
