@@ -121,51 +121,6 @@ module Domain {
     }
 }
 
-// PokemonList
-module PokemonList {
-
-    export class Charizard extends Domain.Pokemon {
-        constructor(id: string) {
-            super(new Domain.PokemonID(id),
-                  new Domain.Name('リザードン'),
-                  [new Domain.Type('fire'), new Domain.Type('flying')]);
-        }
-    }
-
-    export class Rotom extends Domain.Pokemon {
-        constructor(id: string) {
-            super(new Domain.PokemonID(id),
-                  new Domain.Name('ロトム'),
-                  [new Domain.Type('water'), new Domain.Type('ghost')]);
-        }
-    }
-
-    export class Palkia extends Domain.Pokemon {
-        constructor(id: string) {
-            super(new Domain.PokemonID(id),
-                  new Domain.Name('パルキア'),
-                  [new Domain.Type('water'), new Domain.Type('dragon')]);
-        }
-    }
-
-    export class Genesect extends Domain.Pokemon {
-        constructor(id: string) {
-            super(new Domain.PokemonID(id),
-                  new Domain.Name('ゲノセクト'),
-                  [new Domain.Type('bug'), new Domain.Type('steel')]);
-        }
-    }
-
-    export class Greninja extends Domain.Pokemon {
-        constructor(id: string) {
-            super(new Domain.PokemonID(id),
-                  new Domain.Name('ゲッコウガ'),
-                  [new Domain.Type('water'), new Domain.Type('dark')]);
-        }
-    }
-
-}
-
 // Factory
 module Factory {
 
@@ -283,6 +238,51 @@ module Factory {
 
         }
     }
+}
+
+// PokemonList
+module PokemonList {
+
+    export class Charizard extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('リザードン'),
+                  [new Domain.Type('fire'), new Domain.Type('flying')]);
+        }
+    }
+
+    export class Rotom extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('ロトム'),
+                  [new Domain.Type('water'), new Domain.Type('ghost')]);
+        }
+    }
+
+    export class Palkia extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('パルキア'),
+                  [new Domain.Type('water'), new Domain.Type('dragon')]);
+        }
+    }
+
+    export class Genesect extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('ゲノセクト'),
+                  [new Domain.Type('bug'), new Domain.Type('steel')]);
+        }
+    }
+
+    export class Greninja extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('ゲッコウガ'),
+                  [new Domain.Type('water'), new Domain.Type('dark')]);
+        }
+    }
+
 }
 
 // Move
