@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "author": "funnythingz",
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.1",
-    "grunt-contrib-compass": "~0.5.0"
+    "grunt": "",
+    "grunt-contrib-watch": "",
+    "grunt-contrib-compass": ""
   }
 }
