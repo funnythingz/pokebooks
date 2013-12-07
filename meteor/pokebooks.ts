@@ -109,17 +109,23 @@ module Domain {
         constructor(public name: Name) {}
 
     }
+    
+}
+
+// ViewModel
+module ViewModel {
 
     export class PokemonPage {
 
-        constructor(public pokemon: Pokemon,
-                    public pokedexNumber: PokedexNumber,
-                    public level: Level,
-                    public abilites: Abilites,
-                    public moves: Move[]) {}
+        constructor(public pokemon: Domain.Pokemon,
+                    public pokedexNumber: Domain.PokedexNumber,
+                    public level: Domain.Level,
+                    public abilites: Domain.Abilites,
+                    public moves: Domain.Move[]) {}
     
     }
 }
+
 
 // Factory
 module Factory {
@@ -174,9 +180,9 @@ module Factory {
 
     export class PokemonListFactory {
 
-        createPokemonList(responseFromPokebookCollection: any): Domain.PokemonPage[] {
+        createPokemonList(responseFromPokebookCollection: any): ViewModel.PokemonPage[] {
 
-            var pokemonPages: Domain.PokemonPage[] = [];
+            var pokemonPages: ViewModel.PokemonPage[] = [];
             var pokemonFactory = new Factory.PokemonFactory();
             var abilitesFactory = new Factory.AbilitesFactory();
             var moveFactory = new Factory.MoveFactory();
@@ -196,7 +202,7 @@ module Factory {
                     return moveFactory.createMove(val);
                 });
 
-                pokemonPages.push(new Domain.PokemonPage(pokemon,
+                pokemonPages.push(new ViewModel.PokemonPage(pokemon,
                                                          pokedexNumber,
                                                          level,
                                                          abilites,
@@ -209,7 +215,7 @@ module Factory {
 
     export class PokemonPageFactory {
 
-        createPokemonPage(pokebookCollection: any): Domain.PokemonPage {
+        createPokemonPage(pokebookCollection: any): ViewModel.PokemonPage {
 
             if(typeof pokebookCollection === 'undefined') {
                 return null;
@@ -234,7 +240,7 @@ module Factory {
                 return moveFactory.createMove(val);
             });
 
-            return new Domain.PokemonPage(pokemon, pokedexNumber, level, abilites, moves)
+            return new ViewModel.PokemonPage(pokemon, pokedexNumber, level, abilites, moves)
 
         }
     }
@@ -565,7 +571,7 @@ var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
 var pokedexNumber = new Domain.PokedexNumber('479');
 var level = new Domain.Level('69');
 
-var pokemonPage: Domain.PokemonPage = new Domain.PokemonPage(rotom1,
+var pokemonPage: Domain.PokemonPage = new ViewModel.PokemonPage(rotom1,
                                                              pokedexNumber,
                                                              level,
                                                              AbilitesList.levitate,
