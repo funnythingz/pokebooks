@@ -54,9 +54,9 @@ module Domain {
 
     export class Pokemon extends DDD.Entity<DDD.Identity<string>> {
 
-        constructor(id: Domain.PokemonID = null,
-                    public name: Domain.Name = null,
-                    public types: Domain.Type[] = null) {
+        constructor(id: Domain.PokemonID,
+                    public name: Domain.Name,
+                    public types: Domain.Type[]) {
 
             super(id);
         }
