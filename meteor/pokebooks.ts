@@ -246,6 +246,24 @@ module Factory {
     }
 }
 
+
+// Repository
+module Repository {
+
+    export class PokemonRepository {
+
+        static findOne(id: string) {
+            return Collections.PokebookCollection.findOne({_id: id});
+        }
+
+        static remove(id: string) {
+            return Collections.PokebookCollection.remove({_id: id});
+        }
+    }
+
+}
+
+
 // PokemonList
 module PokemonList {
 
@@ -409,7 +427,7 @@ Router.map(function() {
     this.route('pokemons', {
         path: '/',
         layoutTemplate: 'layout',
-        template: 'pokemonsTpl',
+        template: 'pokemonListTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
             'asideTpl':  {to: 'aside'},
@@ -500,13 +518,23 @@ Template['pokemonTpl'].helpers({
         // FIXME: `this.params._id` がTypeScriptだととれないっぽい？ので仕方なくこの対応
         location.pathname.match(/\/pokemon\/(.*?)$/);
         var _id = RegExp.$1;
-
-        var pokebook = Collections.PokebookCollection.findOne({_id: _id});
         var pokemonPageFactory = new Factory.PokemonPageFactory();
-        var pokemonPage = pokemonPageFactory.createPokemonPage(pokebook);
+        var pokemonPage = pokemonPageFactory.createPokemonPage(Repository.PokemonRepository.findOne(_id));
 
         return pokemonPage;
     }
+});
+Template['pokemonTpl'].events({
+
+    'click .remove-pokemon': (event) => {
+        if(confirm('このポケモンを削除しちゃう？')) {
+            var _id = $('.pokemon-detail-container').attr('id');
+            Repository.PokemonRepository.remove(_id);
+        } else {
+            event.preventDefault();
+        }
+    }
+
 });
 
 Template['postTpl'].helpers({
