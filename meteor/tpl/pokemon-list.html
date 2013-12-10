@@ -11,11 +11,16 @@
               <span class="pokemon-sprite no{{pokedexNumber.value}}"></span>
             </div>
             <div class="item">
-              <h2 class="media-heading h5"><span>{{pokemon.name.value}}</span></h2>
-              <div>
-                {{#each pokemon.types}}
-                <span class="type-{{value}}"></span>
-                {{/each}}
+              <h2 class="media-heading h5">
+                <span>{{pokemon.name.value}}</span>
+                <span class="type-list">
+                  {{#each pokemon.types}}
+                  <span class="type-{{value}}"></span>
+                  {{/each}}
+                </span>
+              </h2>
+              <div class="description ellipsis minor small">
+                {{pokemonMemo.value}}
               </div>
             </div>
           </div>

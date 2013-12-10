@@ -83,6 +83,12 @@ module Domain {
 
     }
 
+    export class PokemonMemo {
+
+        constructor(public value: string) {}
+
+    }
+
     export class Move {
 
         constructor(public name: Name,
@@ -120,7 +126,8 @@ module ViewModel {
         constructor(public pokemon: Domain.Pokemon,
                     public pokedexNumber: Domain.PokedexNumber,
                     public abilites: Domain.Abilites,
-                    public moves: Domain.Move[]) {}
+                    public moves: Domain.Move[],
+                    public pokemonMemo: Domain.PokemonMemo) {}
     
     }
 }
@@ -199,10 +206,13 @@ module Factory {
                     return moveFactory.createMove(val);
                 });
 
+                var pokemonMemo = new Domain.PokemonMemo(pokebookCollection.pokemonMemo);
+
                 pokemonPages.push(new ViewModel.PokemonPage(pokemon,
-                                                         pokedexNumber,
-                                                         abilites,
-                                                         moves));
+                                                            pokedexNumber,
+                                                            abilites,
+                                                            moves,
+                                                            pokemonMemo));
             });
 
             return pokemonPages;
@@ -234,7 +244,9 @@ module Factory {
                 return moveFactory.createMove(val);
             });
 
-            return new ViewModel.PokemonPage(pokemon, pokedexNumber, abilites, moves)
+            var pokemonMemo = new Domain.PokemonMemo(pokebookCollection.pokemonMemo);
+
+            return new ViewModel.PokemonPage(pokemon, pokedexNumber, abilites, moves, pokemonMemo)
 
         }
     }
@@ -374,6 +386,7 @@ module Collections {
         pokemon?: string;
         abilites?: string;
         moves?: string[];
+        pokemonMemo?: string[];
         created_at?: any;
     }
 
@@ -558,10 +571,13 @@ Template['postTpl'].events({
                                                               $('#selectMove3').val(),
                                                               $('#selectMove4').val()]);
 
+        var pokemonMemo: string = $('#pokemonMemo').val();
+
         Collections.PokebookCollection.insert({
             pokedexNumber: selectedPokemon,
             abilites: selectedAbilites,
             moves: selectedMoves,
+            pokemonMemo: pokemonMemo,
             created_at: (new Date()).getTime()
         });
 

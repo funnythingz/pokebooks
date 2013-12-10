@@ -29,6 +29,9 @@ a {
   font-family: 'Henny Penny', cursive;
 }
 
+%_tiny {
+  font-size: 10px;
+}
 %_small {
   font-size: 12px;
 }
@@ -61,6 +64,14 @@ a {
 .sentence {
   line-height: 1.4;
   @extend %_medium;
+  margin: 0;
+
+  + .sentence {
+    margin-top: 5px;
+  }
+}
+.tiny {
+  @extend %_tiny;
 }
 .small {
   @extend %_small;
@@ -80,6 +91,9 @@ a {
 .baseline {
   @extend %_baseline;
 }
+.minor {
+  color: #789;
+}
 ._level {
   margin-left: 4px;
 }
@@ -94,4 +108,14 @@ a {
 
 .btn {
   line-height: 14px;
+}
+
+.type-list {
+  margin-left: 10px;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

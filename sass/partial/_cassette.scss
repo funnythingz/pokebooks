@@ -1,6 +1,27 @@
 .unit {
   margin: 10px  0px;
 }
+.headline {
+  border:   solid 1px #e1e2e3;
+  background-color: transparent;
+  padding: 5px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.2;
+  &.first,
+  &:first-child {
+    @include border-top-radius(5px);
+  }
+  &.last,
+  &:last-child {
+    @include border-bottom-radius(5px);
+    border-bottom: solid 1px #e1e2e3;
+  }
+  &:only-child,
+  &.only {
+    @include border-radius(5px);
+  }
+}
 .cassette {
   border-top:   solid 1px #e1e2e3;
   border-left:  solid 1px #e1e2e3;

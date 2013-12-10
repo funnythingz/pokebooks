@@ -23,6 +23,7 @@
           </div>
         </div>
         <div class="inner">
+          <h1 class="headline minor">おぼえているわざ</h1>
           {{#each pokemonPage.moves}}
           <article class="cassette">
             <div class="inner">
@@ -38,6 +39,17 @@
             </div>
           </article>
           {{/each}}
+        </div>
+
+        <div class="inner">
+          <h1 class="headline minor">めも</h1>
+          <article class="cassette">
+            <div class="inner">
+              <p class="sentence">
+                {{pokemonPage.pokemonMemo.value}}
+              </p>
+            </div>
+          </article>
         </div>
       </article>
     </section>
