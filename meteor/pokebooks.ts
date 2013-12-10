@@ -119,7 +119,6 @@ module ViewModel {
 
         constructor(public pokemon: Domain.Pokemon,
                     public pokedexNumber: Domain.PokedexNumber,
-                    public level: Domain.Level,
                     public abilites: Domain.Abilites,
                     public moves: Domain.Move[]) {}
     
@@ -194,8 +193,6 @@ module Factory {
 
                 var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
 
-                var level = new Domain.Level(pokebookCollection.level);
-
                 var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
 
                 var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
@@ -204,7 +201,6 @@ module Factory {
 
                 pokemonPages.push(new ViewModel.PokemonPage(pokemon,
                                                          pokedexNumber,
-                                                         level,
                                                          abilites,
                                                          moves));
             });
@@ -232,15 +228,13 @@ module Factory {
 
             var pokedexNumber = new Domain.PokedexNumber(pokebookCollection.pokedexNumber);
 
-            var level = new Domain.Level(pokebookCollection.level);
-
             var abilites = abilitesFactory.createAbilites(pokebookCollection.abilites);
 
             var moves: Domain.Move[] = $.map(pokebookCollection.moves, (val, i) => {
                 return moveFactory.createMove(val);
             });
 
-            return new ViewModel.PokemonPage(pokemon, pokedexNumber, level, abilites, moves)
+            return new ViewModel.PokemonPage(pokemon, pokedexNumber, abilites, moves)
 
         }
     }
@@ -543,14 +537,6 @@ Template['postTpl'].helpers({
         return Dictionary.pokemons;
     },
 
-    levels: () => {
-        var levelList: number[] = [];
-        for(var i = 1; i <= 100; i++) {
-            levelList.push(i);
-        }
-        return levelList;
-    },
-
     abilites: () => {
         return Dictionary.abilites;
     },
@@ -565,7 +551,6 @@ Template['postTpl'].events({
     'click #addPokepage': () => {
 
         var selectedPokemon: string =  $('#selectPokemon').val();
-        var selectedLevel: string = $('#selectLevel').val();
         var selectedAbilites: string = $('#selectAbilites').val();
 
         var selectedMoves: string[] = Helpers.ArrayUtil.uniq([$('#selectMove1').val(),
@@ -575,7 +560,6 @@ Template['postTpl'].events({
 
         Collections.PokebookCollection.insert({
             pokedexNumber: selectedPokemon,
-            level: selectedLevel,
             abilites: selectedAbilites,
             moves: selectedMoves,
             created_at: (new Date()).getTime()
@@ -600,10 +584,9 @@ var pokedexNumber = new Domain.PokedexNumber('479');
 var level = new Domain.Level('69');
 
 var pokemonPage: Domain.PokemonPage = new ViewModel.PokemonPage(rotom1,
-                                                             pokedexNumber,
-                                                             level,
-                                                             AbilitesList.levitate,
-                                                             [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
+                                                                pokedexNumber,
+                                                                AbilitesList.levitate,
+                                                                [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
 
 console.log(pokemonPage);
 
