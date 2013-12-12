@@ -534,7 +534,7 @@ Template['pokemonTpl'].helpers({
 Template['pokemonTpl'].events({
 
     'click .remove-pokemon': (event) => {
-        if(confirm('このポケモンを削除しちゃう？')) {
+        if(confirm('このポケモンを削除しますか？')) {
             var _id = $('.pokemon-detail-container').attr('id');
             Repository.PokemonRepository.remove(_id);
         } else {
