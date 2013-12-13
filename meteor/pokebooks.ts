@@ -273,6 +273,46 @@ module Repository {
 // PokemonList
 module PokemonList {
 
+    export class Bulbasaur extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('フシギダネ'),
+                  [new Domain.Type('grass'), new Domain.Type('poison')]);
+        }
+    }
+
+    export class Ivysaur extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('フシギソウ'),
+                  [new Domain.Type('grass'), new Domain.Type('poison')]);
+        }
+    }
+
+    export class Venusaur extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('フシギバナ'),
+                  [new Domain.Type('grass'), new Domain.Type('poison')]);
+        }
+    }
+
+    export class Charmander extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('ヒトカゲ'),
+                  [new Domain.Type('fire')]);
+        }
+    }
+
+    export class Charmeleon extends Domain.Pokemon {
+        constructor(id: string) {
+            super(new Domain.PokemonID(id),
+                  new Domain.Name('リザード'),
+                  [new Domain.Type('fire')]);
+        }
+    }
+
     export class Charizard extends Domain.Pokemon {
         constructor(id: string) {
             super(new Domain.PokemonID(id),
