@@ -138,20 +138,30 @@ module Factory {
 
     export class PokemonFactory {
 
-        createPokemon(hash: string,
+        createPokemon(id: string,
                       pokemon_number: string): Domain.Pokemon {
 
             switch(pokemon_number) {
+                case '001':
+                    return new PokemonList.Bulbasaur(id);
+                case '002':
+                    return new PokemonList.Ivysaur(id);
+                case '003':
+                    return new PokemonList.Venusaur(id);
+                case '004':
+                    return new PokemonList.Charmander(id);
+                case '005':
+                    return new PokemonList.Charmeleon(id);
                 case '006':
-                    return new PokemonList.Charizard(hash);
+                    return new PokemonList.Charizard(id);
                 case '479':
-                    return new PokemonList.Rotom(hash);
+                    return new PokemonList.Rotom(id);
                 case '484':
-                    return new PokemonList.Palkia(hash);
+                    return new PokemonList.Palkia(id);
                 case '649':
-                    return new PokemonList.Genesect(hash);
+                    return new PokemonList.Genesect(id);
                 case '658':
-                    return new PokemonList.Greninja(hash);
+                    return new PokemonList.Greninja(id);
             }
         }
     }
@@ -399,6 +409,11 @@ module AbilitesList {
 module Dictionary {
 
     export var pokemons = [
+        {pokemon_name: 'フシギダネ', pokemon_id: '001'},
+        {pokemon_name: 'フシギソウ', pokemon_id: '002'},
+        {pokemon_name: 'フシギバナ', pokemon_id: '003'},
+        {pokemon_name: 'ヒトカゲ', pokemon_id: '004'},
+        {pokemon_name: 'リザード', pokemon_id: '005'},
         {pokemon_name: 'リザードン', pokemon_id: '006'},
         {pokemon_name: 'ロトム', pokemon_id: '479'},
         {pokemon_name: 'パルキア', pokemon_id: '484'},
