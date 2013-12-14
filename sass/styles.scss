@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import "compass/css3";
-@import url(http://fonts.googleapis.com/css?family=Questrial|Henny+Penny|Bonbon);
 
 @import "partial/cassette";
 @import "partial/flexible";
@@ -9,8 +8,13 @@
 @import "partial/type";
 @import "partial/move";
 
+@font-face {
+  font-family: pokemon;
+  src: url("Pokemon Hollow.ttf") format("opentype");
+}
+
 body {
-  font-family: 'Questrial', sans-serif;
+  font-family: Helvetica;
 }
 
 a {
@@ -22,11 +26,11 @@ a {
 }
 
 .logo {
-  font-family: 'Bonbon', cursive;
+  font-family: pokemon, Helvetica;
 }
 
 .copyright {
-  font-family: 'Henny Penny', cursive;
+  font-family: Helvetica;
 }
 
 %_tiny {
