@@ -24,7 +24,7 @@
         </div>
         <div class="inner">
           <h1 class="headline minor">おぼえているわざ</h1>
-          {{#each pokemonPage.moves}}
+          {{#each pokemonPage.moves}}{{#if pokemonPage.moves}}
           <article class="cassette">
             <div class="inner">
               <div class="flexible">
@@ -38,9 +38,9 @@
               </div>
             </div>
           </article>
-          {{/each}}
+          {{/if}}{{/each}}
         </div>
-
+        {{#if pokemonPage.pokemonMemo.value}}
         <div class="inner">
           <h1 class="headline minor">めも</h1>
           <article class="cassette">
@@ -51,6 +51,7 @@
             </div>
           </article>
         </div>
+        {{/if}}
       </article>
     </section>
   </section>
