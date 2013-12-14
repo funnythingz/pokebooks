@@ -6531,7 +6531,7 @@ module PokemonList {
     export class Giratina extends Domain.Pokemon {
         constructor(id: string) {
             super(new Domain.PokemonID(id),
-                  new Domain.Name('ギラティナ(オリジン)'),
+                  new Domain.Name('ギラティナ'),
                   [new Domain.Type('ghost'), new Domain.Type('dragon')]);
         }
     }
