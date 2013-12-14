@@ -492,7 +492,6 @@ Router.map(function() {
         template: 'pokemonListTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
-            'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
         },
 
@@ -521,7 +520,6 @@ Router.map(function() {
         template: 'pokemonTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
-            'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
         },
 
@@ -541,7 +539,6 @@ Router.map(function() {
         template: 'postTpl',
         yieldTemplates: {
             'headerTpl': {to: 'header'},
-            'asideTpl':  {to: 'aside'},
             'footerTpl': {to: 'footer'}
         },
 
@@ -564,9 +561,6 @@ Template['headerTpl'].helpers({
     title: () => {
         return "Pokebooks";
     }
-});
-
-Template['asideTpl'].helpers({
 });
 
 Template['footerTpl'].helpers({
