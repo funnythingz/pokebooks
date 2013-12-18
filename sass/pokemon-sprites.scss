@@ -75,21 +75,8 @@
 @include _pokemon();
 
 // others
-.no487_altered {
-  background-image: inline-image("pokemon/487_altered.png");
-}
-.no681_shield {
-  background-image: inline-image("pokemon/681_shield.png");
-}
-.no681_blade {
-  background-image: inline-image("pokemon/681_blade.png");
-}
-.no647_resolute {
-  background-image: inline-image("pokemon/647_resolute.png");
-}
-.no492_sky {
-  background-image: inline-image("pokemon/492_sky.png");
-}
+
+/**
 .no386_attack {
   background-image: inline-image("pokemon/386_attack.png");
 }
@@ -98,33 +85,6 @@
 }
 .no386_defense {
   background-image: inline-image("pokemon/386_defense.png");
-}
-.no641_therian {
-  background-image: inline-image("pokemon/641_therian.png");
-}
-.no678_male {
-  background-image: inline-image("pokemon/678_male.png");
-}
-.no678_female {
-  background-image: inline-image("pokemon/678_female.png");
-}
-.no710_large {
-  background-image: inline-image("pokemon/710_large.png");
-}
-.no710_small {
-  background-image: inline-image("pokemon/710_small.png");
-}
-.no710_super {
-  background-image: inline-image("pokemon/710_super.png");
-}
-.no711_large {
-  background-image: inline-image("pokemon/711_large.png");
-}
-.no711_small {
-  background-image: inline-image("pokemon/711_small.png");
-}
-.no711_super {
-  background-image: inline-image("pokemon/711_super.png");
 }
 .no555_zen {
   background-image: inline-image("pokemon/555_zen.png");
@@ -167,4 +127,47 @@
 }
 .no479_frost {
   background-image: inline-image("pokemon/479_frost.png");
+}
+.no487_altered {
+  background-image: inline-image("pokemon/487_altered.png");
+}
+.no492_sky {
+  background-image: inline-image("pokemon/492_sky.png");
+}
+.no641_therian {
+  background-image: inline-image("pokemon/641_therian.png");
+}
+/**/
+.no647_resolute {
+  background-image: inline-image("pokemon/647_resolute.png");
+}
+.no678_male {
+  background-image: inline-image("pokemon/678_male.png");
+}
+.no678_female {
+  background-image: inline-image("pokemon/678_female.png");
+}
+.no681_shield {
+  background-image: inline-image("pokemon/681_shield.png");
+}
+.no681_blade {
+  background-image: inline-image("pokemon/681_blade.png");
+}
+.no710_large {
+  background-image: inline-image("pokemon/710_large.png");
+}
+.no710_small {
+  background-image: inline-image("pokemon/710_small.png");
+}
+.no710_super {
+  background-image: inline-image("pokemon/710_super.png");
+}
+.no711_large {
+  background-image: inline-image("pokemon/711_large.png");
+}
+.no711_small {
+  background-image: inline-image("pokemon/711_small.png");
+}
+.no711_super {
+  background-image: inline-image("pokemon/711_super.png");
 }
