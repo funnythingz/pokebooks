@@ -9814,31 +9814,4 @@ Template['postTpl'].events({
 });
 
 /* end: Client */
-
-/**
-* Test
-*/
-/**
-var pokemonFactory: Factory.PokemonFactory = new Factory.PokemonFactory();
-var rotom1 = pokemonFactory.createPokemon('rotom1', '479');
-var rotom2 = pokemonFactory.createPokemon('rotom2', '479');
-var charizard1 = pokemonFactory.createPokemon('charizard1', '006');
-var charizard2 = pokemonFactory.createPokemon('charizard2', '006');
-var pokedexNumber = new Domain.PokedexNumber('479');
-var level = new Domain.Level('69');
-
-var pokemonPage: Domain.PokemonPage = new ViewModel.PokemonPage(rotom1,
-                                                                pokedexNumber,
-                                                                AbilitesList.levitate,
-                                                                [MoveList.thunder, MoveList.hydroPump, MoveList.darkPulse, MoveList.discharge]);
-
-console.log(pokemonPage);
-
-console.log(rotom1);
-console.log(rotom2);
-console.log(charizard1);
-console.log(charizard2);
-console.log(rotom1.equals(rotom1));
-console.log(rotom1.equals(rotom2));
-/**/
 }
