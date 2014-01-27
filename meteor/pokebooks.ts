@@ -1715,8 +1715,334 @@ module Factory {
 
         createAbilites(abilites: string): Domain.Abilites {
             switch(abilites) {
+                case 'iceBody':
+                    return AbilitesList.iceBody;
+                case 'stench':
+                    return AbilitesList.stench;
+                case 'thickFat':
+                    return AbilitesList.thickFat;
+                case 'stall':
+                    return AbilitesList.stall;
+                case 'analytic':
+                    return AbilitesList.analytic;
+                case 'contrary':
+                    return AbilitesList.contrary;
+                case 'rainDish':
+                    return AbilitesList.rainDish;
+                case 'drizzle':
+                    return AbilitesList.drizzle;
+                case 'arenaTrap':
+                    return AbilitesList.arenaTrap;
+                case 'intimidate':
+                    return AbilitesList.intimidate;
+                case 'angerPoint':
+                    return AbilitesList.angerPoint;
+                case 'rockHead':
+                    return AbilitesList.rockHead;
+                case 'prankster':
+                    return AbilitesList.prankster;
+                case 'healer':
+                    return AbilitesList.healer;
+                case 'illusion':
+                    return AbilitesList.illusion;
+                case 'tintedLens':
+                    return AbilitesList.tintedLens;
+                case 'hydration':
+                    return AbilitesList.hydration;
+                case 'airLock':
+                    return AbilitesList.airLock;
+                case 'frisk':
+                    return AbilitesList.frisk;
+                case 'hyperCutter':
+                    return AbilitesList.hyperCutter;
+                case 'shadowTag':
+                    return AbilitesList.shadowTag;
+                case 'speedBoost':
+                    return AbilitesList.speedBoost;
+                case 'moldBreaker':
+                    return AbilitesList.moldBreaker;
+                case 'battleArmor':
+                    return AbilitesList.battleArmor;
+                case 'unburden':
+                    return AbilitesList.unburden;
+                case 'imposter':
+                    return AbilitesList.imposter;
+                case 'sturdy':
+                    return AbilitesList.sturdy;
+                case 'drySkin':
+                    return AbilitesList.drySkin;
+                case 'anticipation':
+                    return AbilitesList.anticipation;
+                case 'scrappy':
+                    return AbilitesList.scrappy;
+                case 'suctionCups':
+                    return AbilitesList.suctionCups;
+                case 'superLuck':
+                    return AbilitesList.superLuck;
+                case 'unnerve':
+                    return AbilitesList.unnerve;
+                case 'gluttony':
+                    return AbilitesList.gluttony;
+                case 'weakArmor':
+                    return AbilitesList.weakArmor;
+                case 'clearBody':
+                    return AbilitesList.clearBody;
+                case 'torrent':
+                    return AbilitesList.torrent;
+                case 'guts':
+                    return AbilitesList.guts;
+                case 'regenerator':
+                    return AbilitesList.regenerator;
+                case 'roughSkin':
+                    return AbilitesList.roughSkin;
+                case 'solarPower':
+                    return AbilitesList.solarPower;
+                case 'shellArmor':
+                    return AbilitesList.shellArmor;
+                case 'moxie':
+                    return AbilitesList.moxie;
+                case 'naturalCure':
+                    return AbilitesList.naturalCure;
+                case 'damp':
+                    return AbilitesList.damp;
+                case 'harvest':
+                    return AbilitesList.harvest;
+                case 'limber':
+                    return AbilitesList.limber;
+                case 'victoryStar':
+                    return AbilitesList.victoryStar;
+                case 'magnetPull':
+                    return AbilitesList.magnetPull;
+                case 'whiteSmoke':
+                    return AbilitesList.whiteSmoke;
+                case 'synchronize':
+                    return AbilitesList.synchronize;
+                case 'overgrow':
+                    return AbilitesList.overgrow;
+                case 'swiftSwim':
+                    return AbilitesList.swiftSwim;
+                case 'skillLink':
+                    return AbilitesList.skillLink;
+                case 'reckless':
+                    return AbilitesList.reckless;
+                case 'sniper':
+                    return AbilitesList.sniper;
+                case 'sandStream':
+                    return AbilitesList.sandStream;
+                case 'sandRush':
+                    return AbilitesList.sandRush;
+                case 'sandVeil':
+                    return AbilitesList.sandVeil;
+                case 'sandForce':
+                    return AbilitesList.sandForce;
+                case 'infiltrator':
+                    return AbilitesList.infiltrator;
+                case 'keenEye':
+                    return AbilitesList.keenEye;
+                case 'slowStart':
+                    return AbilitesList.slowStart;
+                case 'justified':
+                    return AbilitesList.justified;
+                case 'innerFocus':
+                    return AbilitesList.innerFocus;
+                case 'staticElectricity':
+                    return AbilitesList.staticElectricity;
+                case 'sapSipper':
+                    return AbilitesList.sapSipper;
+                case 'turboblaze':
+                    return AbilitesList.turboblaze;
+                case 'heatproof':
+                    return AbilitesList.heatproof;
+                case 'download':
+                    return AbilitesList.download;
+                case 'shedSkin':
+                    return AbilitesList.shedSkin;
+                case 'zenMode':
+                    return AbilitesList.zenMode;
+                case 'simple':
+                    return AbilitesList.simple;
+                case 'sheerForce':
+                    return AbilitesList.sheerForce;
+                case 'hugePower':
+                    return AbilitesList.hugePower;
+                case 'voltAbsorb':
+                    return AbilitesList.voltAbsorb;
+                case 'tangledFeet':
+                    return AbilitesList.tangledFeet;
+                case 'waterAbsorb':
+                    return AbilitesList.waterAbsorb;
+                case 'adaptability':
+                    return AbilitesList.adaptability;
+                case 'technician':
+                    return AbilitesList.technician;
+                case 'ironFist':
+                    return AbilitesList.ironFist;
+                case 'ironBarbs':
+                    return AbilitesList.ironBarbs;
+                case 'teravolt':
+                    return AbilitesList.teravolt;
+                case 'telepathy':
+                    return AbilitesList.telepathy;
+                case 'motorDrive':
+                    return AbilitesList.motorDrive;
+                case 'forecast':
+                    return AbilitesList.forecast;
+                case 'unaware':
+                    return AbilitesList.unaware;
+                case 'sereneGrace':
+                    return AbilitesList.sereneGrace;
+                case 'rivalry':
+                    return AbilitesList.rivalry;
+                case 'poisonTouch':
+                    return AbilitesList.poisonTouch;
+                case 'poisonPoint':
+                    return AbilitesList.poisonPoint;
+                case 'toxicBoost':
+                    return AbilitesList.toxicBoost;
+                case 'trace':
+                    return AbilitesList.trace;
+                case 'oblivious':
+                    return AbilitesList.oblivious;
+                case 'badDreams':
+                    return AbilitesList.badDreams;
+                case 'truant':
+                    return AbilitesList.truant;
+                case 'runAway':
+                    return AbilitesList.runAway;
+                case 'flareBoost':
+                    return AbilitesList.flareBoost;
+                case 'stickyHold':
+                    return AbilitesList.stickyHold;
+                case 'noGuard':
+                    return AbilitesList.noGuard;
+                case 'cloudNine':
+                    return AbilitesList.cloudNine;
+                case 'normalize':
+                    return AbilitesList.normalize;
+                case 'cursedBody':
+                    return AbilitesList.cursedBody;
+                case 'solidRock':
+                    return AbilitesList.solidRock;
+                case 'illuminate':
+                    return AbilitesList.illuminate;
+                case 'bigPecks':
+                    return AbilitesList.bigPecks;
+                case 'quickFeet':
+                    return AbilitesList.quickFeet;
+                case 'earlyBird':
+                    return AbilitesList.earlyBird;
+                case 'hustle':
+                    return AbilitesList.hustle;
+                case 'drought':
+                    return AbilitesList.drought;
+                case 'rattled':
+                    return AbilitesList.rattled;
+                case 'lightningrod':
+                    return AbilitesList.lightningrod;
+                case 'filter':
+                    return AbilitesList.filter;
+                case 'klutz':
+                    return AbilitesList.klutz;
+                case 'compoundeyes':
+                    return AbilitesList.compoundeyes;
+                case 'steadfast':
+                    return AbilitesList.steadfast;
+                case 'marvelScale':
+                    return AbilitesList.marvelScale;
+                case 'wonderGuard':
+                    return AbilitesList.wonderGuard;
+                case 'insomnia':
+                    return AbilitesList.insomnia;
                 case 'levitate':
                     return AbilitesList.levitate;
+                case 'plus':
+                    return AbilitesList.plus;
+                case 'flowerGift':
+                    return AbilitesList.flowerGift;
+                case 'pressure':
+                    return AbilitesList.pressure;
+                case 'friendGuard':
+                    return AbilitesList.friendGuard;
+                case 'heavyMetal':
+                    return AbilitesList.heavyMetal;
+                case 'liquidOoze':
+                    return AbilitesList.liquidOoze;
+                case 'colorChange':
+                    return AbilitesList.colorChange;
+                case 'poisonHeal':
+                    return AbilitesList.poisonHeal;
+                case 'soundproof':
+                    return AbilitesList.soundproof;
+                case 'effectSpore':
+                    return AbilitesList.effectSpore;
+                case 'overcoat':
+                    return AbilitesList.overcoat;
+                case 'flameBody':
+                    return AbilitesList.flameBody;
+                case 'minus':
+                    return AbilitesList.minus;
+                case 'ownTempo':
+                    return AbilitesList.ownTempo;
+                case 'magmaArmor':
+                    return AbilitesList.magmaArmor;
+                case 'defiant':
+                    return AbilitesList.defiant;
+                case 'magicGuard':
+                    return AbilitesList.magicGuard;
+                case 'magicBounce':
+                    return AbilitesList.magicBounce;
+                case 'multiscale':
+                    return AbilitesList.multiscale;
+                case 'multitype':
+                    return AbilitesList.multitype;
+                case 'mummy':
+                    return AbilitesList.mummy;
+                case 'waterVeil':
+                    return AbilitesList.waterVeil;
+                case 'honeyGather':
+                    return AbilitesList.honeyGather;
+                case 'wonderSkin':
+                    return AbilitesList.wonderSkin;
+                case 'swarm':
+                    return AbilitesList.swarm;
+                case 'moody':
+                    return AbilitesList.moody;
+                case 'cuteCharm':
+                    return AbilitesList.cuteCharm;
+                case 'immunity':
+                    return AbilitesList.immunity;
+                case 'blaze':
+                    return AbilitesList.blaze;
+                case 'pickup':
+                    return AbilitesList.pickup;
+                case 'flashFire':
+                    return AbilitesList.flashFire;
+                case 'vitalSpirit':
+                    return AbilitesList.vitalSpirit;
+                case 'aftermath':
+                    return AbilitesList.aftermath;
+                case 'snowCloak':
+                    return AbilitesList.snowCloak;
+                case 'snowWarning':
+                    return AbilitesList.snowWarning;
+                case 'chlorophyll':
+                    return AbilitesList.chlorophyll;
+                case 'purePower':
+                    return AbilitesList.purePower;
+                case 'forewarn':
+                    return AbilitesList.forewarn;
+                case 'stormDrain':
+                    return AbilitesList.stormDrain;
+                case 'defeatist':
+                    return AbilitesList.defeatist;
+                case 'lightMetal':
+                    return AbilitesList.lightMetal;
+                case 'leafGuard':
+                    return AbilitesList.leafGuard;
+                case 'shieldDust':
+                    return AbilitesList.shieldDust;
+                case 'pickpocket':
+                    return AbilitesList.pickpocket;
             }
         }
     
@@ -8813,7 +9139,170 @@ module MoveList {
 // Abilites
 module AbilitesList {
 
+    export var iceBody: Domain.Abilites = new Domain.Abilites(new Domain.Name('アイスボディ'));
+    export var stench: Domain.Abilites = new Domain.Abilites(new Domain.Name('あくしゅう'));
+    export var thickFat: Domain.Abilites = new Domain.Abilites(new Domain.Name('あついしぼう'));
+    export var stall: Domain.Abilites = new Domain.Abilites(new Domain.Name('あとだし'));
+    export var analytic: Domain.Abilites = new Domain.Abilites(new Domain.Name('アナライズ'));
+    export var contrary: Domain.Abilites = new Domain.Abilites(new Domain.Name('あまのじゃく'));
+    export var rainDish: Domain.Abilites = new Domain.Abilites(new Domain.Name('あめうけざら'));
+    export var drizzle: Domain.Abilites = new Domain.Abilites(new Domain.Name('あめふらし'));
+    export var arenaTrap: Domain.Abilites = new Domain.Abilites(new Domain.Name('ありじごく'));
+    export var intimidate: Domain.Abilites = new Domain.Abilites(new Domain.Name('いかく'));
+    export var angerPoint: Domain.Abilites = new Domain.Abilites(new Domain.Name('いかりのつぼ'));
+    export var rockHead: Domain.Abilites = new Domain.Abilites(new Domain.Name('いしあたま'));
+    export var prankster: Domain.Abilites = new Domain.Abilites(new Domain.Name('いたずらごころ'));
+    export var healer: Domain.Abilites = new Domain.Abilites(new Domain.Name('いやしのこころ'));
+    export var illusion: Domain.Abilites = new Domain.Abilites(new Domain.Name('イリュージョン'));
+    export var tintedLens: Domain.Abilites = new Domain.Abilites(new Domain.Name('いろめがね'));
+    export var hydration: Domain.Abilites = new Domain.Abilites(new Domain.Name('うるおいボディ'));
+    export var airLock: Domain.Abilites = new Domain.Abilites(new Domain.Name('エアロック'));
+    export var frisk: Domain.Abilites = new Domain.Abilites(new Domain.Name('おみとおし'));
+    export var hyperCutter: Domain.Abilites = new Domain.Abilites(new Domain.Name('かいりきバサミ'));
+    export var shadowTag: Domain.Abilites = new Domain.Abilites(new Domain.Name('かげふみ'));
+    export var speedBoost: Domain.Abilites = new Domain.Abilites(new Domain.Name('かそく'));
+    export var moldBreaker: Domain.Abilites = new Domain.Abilites(new Domain.Name('かたやぶり'));
+    export var battleArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('カブトアーマー'));
+    export var unburden: Domain.Abilites = new Domain.Abilites(new Domain.Name('かるわざ'));
+    export var imposter: Domain.Abilites = new Domain.Abilites(new Domain.Name('かわりもの'));
+    export var sturdy: Domain.Abilites = new Domain.Abilites(new Domain.Name('がんじょう　'));
+    export var drySkin: Domain.Abilites = new Domain.Abilites(new Domain.Name('かんそうはだ'));
+    export var anticipation: Domain.Abilites = new Domain.Abilites(new Domain.Name('きけんよち'));
+    export var scrappy: Domain.Abilites = new Domain.Abilites(new Domain.Name('きもったま'));
+    export var suctionCups: Domain.Abilites = new Domain.Abilites(new Domain.Name('きゅうばん'));
+    export var superLuck: Domain.Abilites = new Domain.Abilites(new Domain.Name('きょううん'));
+    export var unnerve: Domain.Abilites = new Domain.Abilites(new Domain.Name('きんちょうかん'));
+    export var gluttony: Domain.Abilites = new Domain.Abilites(new Domain.Name('くいしんぼう'));
+    export var weakArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('くだけるよろい'));
+    export var clearBody: Domain.Abilites = new Domain.Abilites(new Domain.Name('クリアボディ'));
+    export var torrent: Domain.Abilites = new Domain.Abilites(new Domain.Name('げきりゅう'));
+    export var guts: Domain.Abilites = new Domain.Abilites(new Domain.Name('こんじょう'));
+    export var regenerator: Domain.Abilites = new Domain.Abilites(new Domain.Name('さいせいりょく'));
+    export var roughSkin: Domain.Abilites = new Domain.Abilites(new Domain.Name('さめはだ'));
+    export var solarPower: Domain.Abilites = new Domain.Abilites(new Domain.Name('サンパワー'));
+    export var shellArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('シェルアーマー　'));
+    export var moxie: Domain.Abilites = new Domain.Abilites(new Domain.Name('じしんかじょう'));
+    export var naturalCure: Domain.Abilites = new Domain.Abilites(new Domain.Name('しぜんかいふく'));
+    export var damp: Domain.Abilites = new Domain.Abilites(new Domain.Name('しめりけ'));
+    export var harvest: Domain.Abilites = new Domain.Abilites(new Domain.Name('しゅうかく'));
+    export var limber: Domain.Abilites = new Domain.Abilites(new Domain.Name('じゅうなん'));
+    export var victoryStar: Domain.Abilites = new Domain.Abilites(new Domain.Name('しょうりのほし'));
+    export var magnetPull: Domain.Abilites = new Domain.Abilites(new Domain.Name('じりょく'));
+    export var whiteSmoke: Domain.Abilites = new Domain.Abilites(new Domain.Name('しろいけむり'));
+    export var synchronize: Domain.Abilites = new Domain.Abilites(new Domain.Name('シンクロ'));
+    export var overgrow: Domain.Abilites = new Domain.Abilites(new Domain.Name('しんりょく'));
+    export var swiftSwim: Domain.Abilites = new Domain.Abilites(new Domain.Name('すいすい'));
+    export var skillLink: Domain.Abilites = new Domain.Abilites(new Domain.Name('スキルリンク'));
+    export var reckless: Domain.Abilites = new Domain.Abilites(new Domain.Name('すてみ'));
+    export var sniper: Domain.Abilites = new Domain.Abilites(new Domain.Name('スナイパー'));
+    export var sandStream: Domain.Abilites = new Domain.Abilites(new Domain.Name('すなおこし'));
+    export var sandRush: Domain.Abilites = new Domain.Abilites(new Domain.Name('すなかき'));
+    export var sandVeil: Domain.Abilites = new Domain.Abilites(new Domain.Name('すながくれ'));
+    export var sandForce: Domain.Abilites = new Domain.Abilites(new Domain.Name('すなのちから'));
+    export var infiltrator: Domain.Abilites = new Domain.Abilites(new Domain.Name('すりぬけ'));
+    export var keenEye: Domain.Abilites = new Domain.Abilites(new Domain.Name('するどいめ'));
+    export var slowStart: Domain.Abilites = new Domain.Abilites(new Domain.Name('スロースタート'));
+    export var justified: Domain.Abilites = new Domain.Abilites(new Domain.Name('せいぎのこころ'));
+    export var innerFocus: Domain.Abilites = new Domain.Abilites(new Domain.Name('せいしんりょく'));
+    export var staticElectricity: Domain.Abilites = new Domain.Abilites(new Domain.Name('せいでんき'));
+    export var sapSipper: Domain.Abilites = new Domain.Abilites(new Domain.Name('そうしょく'));
+    export var turboblaze: Domain.Abilites = new Domain.Abilites(new Domain.Name('ターボブレイズ'));
+    export var heatproof: Domain.Abilites = new Domain.Abilites(new Domain.Name('たいねつ'));
+    export var download: Domain.Abilites = new Domain.Abilites(new Domain.Name('ダウンロード'));
+    export var shedSkin: Domain.Abilites = new Domain.Abilites(new Domain.Name('だっぴ'));
+    export var zenMode: Domain.Abilites = new Domain.Abilites(new Domain.Name('ダルマモード'));
+    export var simple: Domain.Abilites = new Domain.Abilites(new Domain.Name('たんじゅん'));
+    export var sheerForce: Domain.Abilites = new Domain.Abilites(new Domain.Name('ちからずく'));
+    export var hugePower: Domain.Abilites = new Domain.Abilites(new Domain.Name('ちからもち'));
+    export var voltAbsorb: Domain.Abilites = new Domain.Abilites(new Domain.Name('ちくでん'));
+    export var tangledFeet: Domain.Abilites = new Domain.Abilites(new Domain.Name('ちどりあし'));
+    export var waterAbsorb: Domain.Abilites = new Domain.Abilites(new Domain.Name('ちょすい'));
+    export var adaptability: Domain.Abilites = new Domain.Abilites(new Domain.Name('てきおうりょく'));
+    export var technician: Domain.Abilites = new Domain.Abilites(new Domain.Name('テクニシャン'));
+    export var ironFist: Domain.Abilites = new Domain.Abilites(new Domain.Name('てつのこぶし'));
+    export var ironBarbs: Domain.Abilites = new Domain.Abilites(new Domain.Name('てつのトゲ'));
+    export var teravolt: Domain.Abilites = new Domain.Abilites(new Domain.Name('テラボルテージ'));
+    export var telepathy: Domain.Abilites = new Domain.Abilites(new Domain.Name('テレパシー'));
+    export var motorDrive: Domain.Abilites = new Domain.Abilites(new Domain.Name('でんきエンジン'));
+    export var forecast: Domain.Abilites = new Domain.Abilites(new Domain.Name('てんきや'));
+    export var unaware: Domain.Abilites = new Domain.Abilites(new Domain.Name('てんねん'));
+    export var sereneGrace: Domain.Abilites = new Domain.Abilites(new Domain.Name('てんのめぐみ'));
+    export var rivalry: Domain.Abilites = new Domain.Abilites(new Domain.Name('とうそうしん'));
+    export var poisonTouch: Domain.Abilites = new Domain.Abilites(new Domain.Name('どくしゅ'));
+    export var poisonPoint: Domain.Abilites = new Domain.Abilites(new Domain.Name('どくのトゲ'));
+    export var toxicBoost: Domain.Abilites = new Domain.Abilites(new Domain.Name('どくぼうそう'));
+    export var trace: Domain.Abilites = new Domain.Abilites(new Domain.Name('トレース'));
+    export var oblivious: Domain.Abilites = new Domain.Abilites(new Domain.Name('どんかん'));
+    export var badDreams: Domain.Abilites = new Domain.Abilites(new Domain.Name('ナイトメア'));
+    export var truant: Domain.Abilites = new Domain.Abilites(new Domain.Name('なまけ'));
+    export var runAway: Domain.Abilites = new Domain.Abilites(new Domain.Name('にげあし'));
+    export var flareBoost: Domain.Abilites = new Domain.Abilites(new Domain.Name('ねつぼうそう'));
+    export var stickyHold: Domain.Abilites = new Domain.Abilites(new Domain.Name('ねんちゃく'));
+    export var noGuard: Domain.Abilites = new Domain.Abilites(new Domain.Name('ノーガード'));
+    export var cloudNine: Domain.Abilites = new Domain.Abilites(new Domain.Name('ノーてんき'));
+    export var normalize: Domain.Abilites = new Domain.Abilites(new Domain.Name('ノーマルスキン'));
+    export var cursedBody: Domain.Abilites = new Domain.Abilites(new Domain.Name('のろわれボディ'));
+    export var solidRock: Domain.Abilites = new Domain.Abilites(new Domain.Name('ハードロック'));
+    export var illuminate: Domain.Abilites = new Domain.Abilites(new Domain.Name('はっこう'));
+    export var bigPecks: Domain.Abilites = new Domain.Abilites(new Domain.Name('はとむね'));
+    export var quickFeet: Domain.Abilites = new Domain.Abilites(new Domain.Name('はやあし'));
+    export var earlyBird: Domain.Abilites = new Domain.Abilites(new Domain.Name('はやおき'));
+    export var hustle: Domain.Abilites = new Domain.Abilites(new Domain.Name('はりきり'));
+    export var drought: Domain.Abilites = new Domain.Abilites(new Domain.Name('ひでり'));
+    export var rattled: Domain.Abilites = new Domain.Abilites(new Domain.Name('びびり'));
+    export var lightningrod: Domain.Abilites = new Domain.Abilites(new Domain.Name('ひらいしん　'));
+    export var filter: Domain.Abilites = new Domain.Abilites(new Domain.Name('フィルター'));
+    export var klutz: Domain.Abilites = new Domain.Abilites(new Domain.Name('ぶきよう'));
+    export var compoundeyes: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふくがん'));
+    export var steadfast: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふくつのこころ'));
+    export var marvelScale: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふしぎなうろこ'));
+    export var wonderGuard: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふしぎなまもり'));
+    export var insomnia: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふみん'));
     export var levitate: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふゆう'));
+    export var plus: Domain.Abilites = new Domain.Abilites(new Domain.Name('プラス'));
+    export var flowerGift: Domain.Abilites = new Domain.Abilites(new Domain.Name('フラワーギフト'));
+    export var pressure: Domain.Abilites = new Domain.Abilites(new Domain.Name('プレッシャー'));
+    export var friendGuard: Domain.Abilites = new Domain.Abilites(new Domain.Name('フレンドガード'));
+    export var heavyMetal: Domain.Abilites = new Domain.Abilites(new Domain.Name('ヘヴィメタル'));
+    export var liquidOoze: Domain.Abilites = new Domain.Abilites(new Domain.Name('ヘドロ液'));
+    export var colorChange: Domain.Abilites = new Domain.Abilites(new Domain.Name('へんしょく'));
+    export var poisonHeal: Domain.Abilites = new Domain.Abilites(new Domain.Name('ポイズンヒール'));
+    export var soundproof: Domain.Abilites = new Domain.Abilites(new Domain.Name('ぼうおん'));
+    export var effectSpore: Domain.Abilites = new Domain.Abilites(new Domain.Name('ほうし'));
+    export var overcoat: Domain.Abilites = new Domain.Abilites(new Domain.Name('ぼうじん'));
+    export var flameBody: Domain.Abilites = new Domain.Abilites(new Domain.Name('ほのおのからだ'));
+    export var minus: Domain.Abilites = new Domain.Abilites(new Domain.Name('マイナス'));
+    export var ownTempo: Domain.Abilites = new Domain.Abilites(new Domain.Name('マイペース　'));
+    export var magmaArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('マグマのよろい'));
+    export var defiant: Domain.Abilites = new Domain.Abilites(new Domain.Name('まけんき'));
+    export var magicGuard: Domain.Abilites = new Domain.Abilites(new Domain.Name('マジックガード'));
+    export var magicBounce: Domain.Abilites = new Domain.Abilites(new Domain.Name('マジックミラー'));
+    export var multiscale: Domain.Abilites = new Domain.Abilites(new Domain.Name('マルチスケイル'));
+    export var multitype: Domain.Abilites = new Domain.Abilites(new Domain.Name('マルチタイプ'));
+    export var mummy: Domain.Abilites = new Domain.Abilites(new Domain.Name('ミイラ'));
+    export var waterVeil: Domain.Abilites = new Domain.Abilites(new Domain.Name('みずのベール'));
+    export var honeyGather: Domain.Abilites = new Domain.Abilites(new Domain.Name('みつあつめ'));
+    export var wonderSkin: Domain.Abilites = new Domain.Abilites(new Domain.Name('ミラクルスキン'));
+    export var swarm: Domain.Abilites = new Domain.Abilites(new Domain.Name('むしのしらせ'));
+    export var moody: Domain.Abilites = new Domain.Abilites(new Domain.Name('ムラっけ'));
+    export var cuteCharm: Domain.Abilites = new Domain.Abilites(new Domain.Name('メロメロボディ'));
+    export var immunity: Domain.Abilites = new Domain.Abilites(new Domain.Name('めんえき'));
+    export var blaze: Domain.Abilites = new Domain.Abilites(new Domain.Name('もうか'));
+    export var pickup: Domain.Abilites = new Domain.Abilites(new Domain.Name('ものひろい'));
+    export var flashFire: Domain.Abilites = new Domain.Abilites(new Domain.Name('もらいび'));
+    export var vitalSpirit: Domain.Abilites = new Domain.Abilites(new Domain.Name('やるき'));
+    export var aftermath: Domain.Abilites = new Domain.Abilites(new Domain.Name('ゆうばく'));
+    export var snowCloak: Domain.Abilites = new Domain.Abilites(new Domain.Name('ゆきがくれ'));
+    export var snowWarning: Domain.Abilites = new Domain.Abilites(new Domain.Name('ゆきふらし'));
+    export var chlorophyll: Domain.Abilites = new Domain.Abilites(new Domain.Name('ようりょくそ'));
+    export var purePower: Domain.Abilites = new Domain.Abilites(new Domain.Name('ヨガパワー'));
+    export var forewarn: Domain.Abilites = new Domain.Abilites(new Domain.Name('よちむ'));
+    export var stormDrain: Domain.Abilites = new Domain.Abilites(new Domain.Name('よびみず'));
+    export var defeatist: Domain.Abilites = new Domain.Abilites(new Domain.Name('よわき'));
+    export var lightMetal: Domain.Abilites = new Domain.Abilites(new Domain.Name('ライトメタル'));
+    export var leafGuard: Domain.Abilites = new Domain.Abilites(new Domain.Name('リーフガード'));
+    export var shieldDust: Domain.Abilites = new Domain.Abilites(new Domain.Name('りんぷん'));
+    export var pickpocket: Domain.Abilites = new Domain.Abilites(new Domain.Name('わるいてぐせ'));
 
 }
 
@@ -9608,7 +10097,170 @@ module Dictionary {
     ];
 
     export var abilites = [
-        {abilites_name: 'ふゆう', abilites_id: 'levitate'}
+        {abilites_name: 'アイスボディ', abilites_id: 'iceBody'},
+        {abilites_name: 'あくしゅう', abilites_id: 'stench'},
+        {abilites_name: 'あついしぼう', abilites_id: 'thickFat'},
+        {abilites_name: 'あとだし', abilites_id: 'stall'},
+        {abilites_name: 'アナライズ', abilites_id: 'analytic'},
+        {abilites_name: 'あまのじゃく', abilites_id: 'contrary'},
+        {abilites_name: 'あめうけざら', abilites_id: 'rainDish'},
+        {abilites_name: 'あめふらし', abilites_id: 'drizzle'},
+        {abilites_name: 'ありじごく', abilites_id: 'arenaTrap'},
+        {abilites_name: 'いかく', abilites_id: 'intimidate'},
+        {abilites_name: 'いかりのつぼ', abilites_id: 'angerPoint'},
+        {abilites_name: 'いしあたま', abilites_id: 'rockHead'},
+        {abilites_name: 'いたずらごころ', abilites_id: 'prankster'},
+        {abilites_name: 'いやしのこころ', abilites_id: 'healer'},
+        {abilites_name: 'イリュージョン', abilites_id: 'illusion'},
+        {abilites_name: 'いろめがね', abilites_id: 'tintedLens'},
+        {abilites_name: 'うるおいボディ', abilites_id: 'hydration'},
+        {abilites_name: 'エアロック', abilites_id: 'airLock'},
+        {abilites_name: 'おみとおし', abilites_id: 'frisk'},
+        {abilites_name: 'かいりきバサミ', abilites_id: 'hyperCutter'},
+        {abilites_name: 'かげふみ', abilites_id: 'shadowTag'},
+        {abilites_name: 'かそく', abilites_id: 'speedBoost'},
+        {abilites_name: 'かたやぶり', abilites_id: 'moldBreaker'},
+        {abilites_name: 'カブトアーマー', abilites_id: 'battleArmor'},
+        {abilites_name: 'かるわざ', abilites_id: 'unburden'},
+        {abilites_name: 'かわりもの', abilites_id: 'imposter'},
+        {abilites_name: 'がんじょう　', abilites_id: 'sturdy'},
+        {abilites_name: 'かんそうはだ', abilites_id: 'drySkin'},
+        {abilites_name: 'きけんよち', abilites_id: 'anticipation'},
+        {abilites_name: 'きもったま', abilites_id: 'scrappy'},
+        {abilites_name: 'きゅうばん', abilites_id: 'suctionCups'},
+        {abilites_name: 'きょううん', abilites_id: 'superLuck'},
+        {abilites_name: 'きんちょうかん', abilites_id: 'unnerve'},
+        {abilites_name: 'くいしんぼう', abilites_id: 'gluttony'},
+        {abilites_name: 'くだけるよろい', abilites_id: 'weakArmor'},
+        {abilites_name: 'クリアボディ', abilites_id: 'clearBody'},
+        {abilites_name: 'げきりゅう', abilites_id: 'torrent'},
+        {abilites_name: 'こんじょう', abilites_id: 'guts'},
+        {abilites_name: 'さいせいりょく', abilites_id: 'regenerator'},
+        {abilites_name: 'さめはだ', abilites_id: 'roughSkin'},
+        {abilites_name: 'サンパワー', abilites_id: 'solarPower'},
+        {abilites_name: 'シェルアーマー　', abilites_id: 'shellArmor'},
+        {abilites_name: 'じしんかじょう', abilites_id: 'moxie'},
+        {abilites_name: 'しぜんかいふく', abilites_id: 'naturalCure'},
+        {abilites_name: 'しめりけ', abilites_id: 'damp'},
+        {abilites_name: 'しゅうかく', abilites_id: 'harvest'},
+        {abilites_name: 'じゅうなん', abilites_id: 'limber'},
+        {abilites_name: 'しょうりのほし', abilites_id: 'victoryStar'},
+        {abilites_name: 'じりょく', abilites_id: 'magnetPull'},
+        {abilites_name: 'しろいけむり', abilites_id: 'whiteSmoke'},
+        {abilites_name: 'シンクロ', abilites_id: 'synchronize'},
+        {abilites_name: 'しんりょく', abilites_id: 'overgrow'},
+        {abilites_name: 'すいすい', abilites_id: 'swiftSwim'},
+        {abilites_name: 'スキルリンク', abilites_id: 'skillLink'},
+        {abilites_name: 'すてみ', abilites_id: 'reckless'},
+        {abilites_name: 'スナイパー', abilites_id: 'sniper'},
+        {abilites_name: 'すなおこし', abilites_id: 'sandStream'},
+        {abilites_name: 'すなかき', abilites_id: 'sandRush'},
+        {abilites_name: 'すながくれ', abilites_id: 'sandVeil'},
+        {abilites_name: 'すなのちから', abilites_id: 'sandForce'},
+        {abilites_name: 'すりぬけ', abilites_id: 'infiltrator'},
+        {abilites_name: 'するどいめ', abilites_id: 'keenEye'},
+        {abilites_name: 'スロースタート', abilites_id: 'slowStart'},
+        {abilites_name: 'せいぎのこころ', abilites_id: 'justified'},
+        {abilites_name: 'せいしんりょく', abilites_id: 'innerFocus'},
+        {abilites_name: 'せいでんき', abilites_id: 'staticElectricity'},
+        {abilites_name: 'そうしょく', abilites_id: 'sapSipper'},
+        {abilites_name: 'ターボブレイズ', abilites_id: 'turboblaze'},
+        {abilites_name: 'たいねつ', abilites_id: 'heatproof'},
+        {abilites_name: 'ダウンロード', abilites_id: 'download'},
+        {abilites_name: 'だっぴ', abilites_id: 'shedSkin'},
+        {abilites_name: 'ダルマモード', abilites_id: 'zenMode'},
+        {abilites_name: 'たんじゅん', abilites_id: 'simple'},
+        {abilites_name: 'ちからずく', abilites_id: 'sheerForce'},
+        {abilites_name: 'ちからもち', abilites_id: 'hugePower'},
+        {abilites_name: 'ちくでん', abilites_id: 'voltAbsorb'},
+        {abilites_name: 'ちどりあし', abilites_id: 'tangledFeet'},
+        {abilites_name: 'ちょすい', abilites_id: 'waterAbsorb'},
+        {abilites_name: 'てきおうりょく', abilites_id: 'adaptability'},
+        {abilites_name: 'テクニシャン', abilites_id: 'technician'},
+        {abilites_name: 'てつのこぶし', abilites_id: 'ironFist'},
+        {abilites_name: 'てつのトゲ', abilites_id: 'ironBarbs'},
+        {abilites_name: 'テラボルテージ', abilites_id: 'teravolt'},
+        {abilites_name: 'テレパシー', abilites_id: 'telepathy'},
+        {abilites_name: 'でんきエンジン', abilites_id: 'motorDrive'},
+        {abilites_name: 'てんきや', abilites_id: 'forecast'},
+        {abilites_name: 'てんねん', abilites_id: 'unaware'},
+        {abilites_name: 'てんのめぐみ', abilites_id: 'sereneGrace'},
+        {abilites_name: 'とうそうしん', abilites_id: 'rivalry'},
+        {abilites_name: 'どくしゅ', abilites_id: 'poisonTouch'},
+        {abilites_name: 'どくのトゲ', abilites_id: 'poisonPoint'},
+        {abilites_name: 'どくぼうそう', abilites_id: 'toxicBoost'},
+        {abilites_name: 'トレース', abilites_id: 'trace'},
+        {abilites_name: 'どんかん', abilites_id: 'oblivious'},
+        {abilites_name: 'ナイトメア', abilites_id: 'badDreams'},
+        {abilites_name: 'なまけ', abilites_id: 'truant'},
+        {abilites_name: 'にげあし', abilites_id: 'runAway'},
+        {abilites_name: 'ねつぼうそう', abilites_id: 'flareBoost'},
+        {abilites_name: 'ねんちゃく', abilites_id: 'stickyHold'},
+        {abilites_name: 'ノーガード', abilites_id: 'noGuard'},
+        {abilites_name: 'ノーてんき', abilites_id: 'cloudNine'},
+        {abilites_name: 'ノーマルスキン', abilites_id: 'normalize'},
+        {abilites_name: 'のろわれボディ', abilites_id: 'cursedBody'},
+        {abilites_name: 'ハードロック', abilites_id: 'solidRock'},
+        {abilites_name: 'はっこう', abilites_id: 'illuminate'},
+        {abilites_name: 'はとむね', abilites_id: 'bigPecks'},
+        {abilites_name: 'はやあし', abilites_id: 'quickFeet'},
+        {abilites_name: 'はやおき', abilites_id: 'earlyBird'},
+        {abilites_name: 'はりきり', abilites_id: 'hustle'},
+        {abilites_name: 'ひでり', abilites_id: 'drought'},
+        {abilites_name: 'びびり', abilites_id: 'rattled'},
+        {abilites_name: 'ひらいしん　', abilites_id: 'lightningrod'},
+        {abilites_name: 'フィルター', abilites_id: 'filter'},
+        {abilites_name: 'ぶきよう', abilites_id: 'klutz'},
+        {abilites_name: 'ふくがん', abilites_id: 'compoundeyes'},
+        {abilites_name: 'ふくつのこころ', abilites_id: 'steadfast'},
+        {abilites_name: 'ふしぎなうろこ', abilites_id: 'marvelScale'},
+        {abilites_name: 'ふしぎなまもり', abilites_id: 'wonderGuard'},
+        {abilites_name: 'ふみん', abilites_id: 'insomnia'},
+        {abilites_name: 'ふゆう', abilites_id: 'levitate'},
+        {abilites_name: 'プラス', abilites_id: 'plus'},
+        {abilites_name: 'フラワーギフト', abilites_id: 'flowerGift'},
+        {abilites_name: 'プレッシャー', abilites_id: 'pressure'},
+        {abilites_name: 'フレンドガード', abilites_id: 'friendGuard'},
+        {abilites_name: 'ヘヴィメタル', abilites_id: 'heavyMetal'},
+        {abilites_name: 'ヘドロ液', abilites_id: 'liquidOoze'},
+        {abilites_name: 'へんしょく', abilites_id: 'colorChange'},
+        {abilites_name: 'ポイズンヒール', abilites_id: 'poisonHeal'},
+        {abilites_name: 'ぼうおん', abilites_id: 'soundproof'},
+        {abilites_name: 'ほうし', abilites_id: 'effectSpore'},
+        {abilites_name: 'ぼうじん', abilites_id: 'overcoat'},
+        {abilites_name: 'ほのおのからだ', abilites_id: 'flameBody'},
+        {abilites_name: 'マイナス', abilites_id: 'minus'},
+        {abilites_name: 'マイペース　', abilites_id: 'ownTempo'},
+        {abilites_name: 'マグマのよろい', abilites_id: 'magmaArmor'},
+        {abilites_name: 'まけんき', abilites_id: 'defiant'},
+        {abilites_name: 'マジックガード', abilites_id: 'magicGuard'},
+        {abilites_name: 'マジックミラー', abilites_id: 'magicBounce'},
+        {abilites_name: 'マルチスケイル', abilites_id: 'multiscale'},
+        {abilites_name: 'マルチタイプ', abilites_id: 'multitype'},
+        {abilites_name: 'ミイラ', abilites_id: 'mummy'},
+        {abilites_name: 'みずのベール', abilites_id: 'waterVeil'},
+        {abilites_name: 'みつあつめ', abilites_id: 'honeyGather'},
+        {abilites_name: 'ミラクルスキン', abilites_id: 'wonderSkin'},
+        {abilites_name: 'むしのしらせ', abilites_id: 'swarm'},
+        {abilites_name: 'ムラっけ', abilites_id: 'moody'},
+        {abilites_name: 'メロメロボディ', abilites_id: 'cuteCharm'},
+        {abilites_name: 'めんえき', abilites_id: 'immunity'},
+        {abilites_name: 'もうか', abilites_id: 'blaze'},
+        {abilites_name: 'ものひろい', abilites_id: 'pickup'},
+        {abilites_name: 'もらいび', abilites_id: 'flashFire'},
+        {abilites_name: 'やるき', abilites_id: 'vitalSpirit'},
+        {abilites_name: 'ゆうばく', abilites_id: 'aftermath'},
+        {abilites_name: 'ゆきがくれ', abilites_id: 'snowCloak'},
+        {abilites_name: 'ゆきふらし', abilites_id: 'snowWarning'},
+        {abilites_name: 'ようりょくそ', abilites_id: 'chlorophyll'},
+        {abilites_name: 'ヨガパワー', abilites_id: 'purePower'},
+        {abilites_name: 'よちむ', abilites_id: 'forewarn'},
+        {abilites_name: 'よびみず', abilites_id: 'stormDrain'},
+        {abilites_name: 'よわき', abilites_id: 'defeatist'},
+        {abilites_name: 'ライトメタル', abilites_id: 'lightMetal'},
+        {abilites_name: 'リーフガード', abilites_id: 'leafGuard'},
+        {abilites_name: 'りんぷん', abilites_id: 'shieldDust'},
+        {abilites_name: 'わるいてぐせ', abilites_id: 'pickpocket'}
     ];
 
 }
