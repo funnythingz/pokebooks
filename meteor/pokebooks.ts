@@ -93,20 +93,13 @@ module Domain {
 
         constructor(public name: Name,
                     public type: Type,
-                    public moveType: MoveType,
-                    public pp: PowerPoint) {}
+                    public moveType: MoveType) {}
 
     }
 
     export class MoveType {
 
         constructor(public value: string) {}
-
-    }
-
-    export class PowerPoint {
-
-        constructor(public pp: string) {}
 
     }
 
@@ -9116,23 +9109,19 @@ module MoveList {
 /**/
     export var thunder: Domain.Move = new Domain.Move(new Domain.Name('かみなり'),
                                                       new Domain.Type('electric'),
-                                                      new Domain.MoveType('special'),
-                                                      new Domain.PowerPoint('10'));
+                                                      new Domain.MoveType('special'));
 
     export var hydroPump: Domain.Move = new Domain.Move(new Domain.Name('ハイドロポンプ'),
                                                         new Domain.Type('water'),
-                                                        new Domain.MoveType('special'),
-                                                        new Domain.PowerPoint('5'));
+                                                        new Domain.MoveType('special'));
 
     export var darkPulse: Domain.Move = new Domain.Move(new Domain.Name('あくのはどう'),
                                                         new Domain.Type('dark'),
-                                                        new Domain.MoveType('special'),
-                                                        new Domain.PowerPoint('15'));
+                                                        new Domain.MoveType('special'));
 
     export var discharge: Domain.Move = new Domain.Move(new Domain.Name('ほうでん'),
                                                         new Domain.Type('electric'),
-                                                        new Domain.MoveType('special'),
-                                                        new Domain.PowerPoint('10'));
+                                                        new Domain.MoveType('special'));
 
 }
 
