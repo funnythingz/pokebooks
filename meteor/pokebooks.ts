@@ -9154,7 +9154,7 @@ module AbilitesList {
     export var battleArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('カブトアーマー'));
     export var unburden: Domain.Abilites = new Domain.Abilites(new Domain.Name('かるわざ'));
     export var imposter: Domain.Abilites = new Domain.Abilites(new Domain.Name('かわりもの'));
-    export var sturdy: Domain.Abilites = new Domain.Abilites(new Domain.Name('がんじょう　'));
+    export var sturdy: Domain.Abilites = new Domain.Abilites(new Domain.Name('がんじょう'));
     export var drySkin: Domain.Abilites = new Domain.Abilites(new Domain.Name('かんそうはだ'));
     export var anticipation: Domain.Abilites = new Domain.Abilites(new Domain.Name('きけんよち'));
     export var scrappy: Domain.Abilites = new Domain.Abilites(new Domain.Name('きもったま'));
@@ -9169,7 +9169,7 @@ module AbilitesList {
     export var regenerator: Domain.Abilites = new Domain.Abilites(new Domain.Name('さいせいりょく'));
     export var roughSkin: Domain.Abilites = new Domain.Abilites(new Domain.Name('さめはだ'));
     export var solarPower: Domain.Abilites = new Domain.Abilites(new Domain.Name('サンパワー'));
-    export var shellArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('シェルアーマー　'));
+    export var shellArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('シェルアーマー'));
     export var moxie: Domain.Abilites = new Domain.Abilites(new Domain.Name('じしんかじょう'));
     export var naturalCure: Domain.Abilites = new Domain.Abilites(new Domain.Name('しぜんかいふく'));
     export var damp: Domain.Abilites = new Domain.Abilites(new Domain.Name('しめりけ'));
@@ -9239,7 +9239,7 @@ module AbilitesList {
     export var hustle: Domain.Abilites = new Domain.Abilites(new Domain.Name('はりきり'));
     export var drought: Domain.Abilites = new Domain.Abilites(new Domain.Name('ひでり'));
     export var rattled: Domain.Abilites = new Domain.Abilites(new Domain.Name('びびり'));
-    export var lightningrod: Domain.Abilites = new Domain.Abilites(new Domain.Name('ひらいしん　'));
+    export var lightningrod: Domain.Abilites = new Domain.Abilites(new Domain.Name('ひらいしん'));
     export var filter: Domain.Abilites = new Domain.Abilites(new Domain.Name('フィルター'));
     export var klutz: Domain.Abilites = new Domain.Abilites(new Domain.Name('ぶきよう'));
     export var compoundeyes: Domain.Abilites = new Domain.Abilites(new Domain.Name('ふくがん'));
@@ -9261,7 +9261,7 @@ module AbilitesList {
     export var overcoat: Domain.Abilites = new Domain.Abilites(new Domain.Name('ぼうじん'));
     export var flameBody: Domain.Abilites = new Domain.Abilites(new Domain.Name('ほのおのからだ'));
     export var minus: Domain.Abilites = new Domain.Abilites(new Domain.Name('マイナス'));
-    export var ownTempo: Domain.Abilites = new Domain.Abilites(new Domain.Name('マイペース　'));
+    export var ownTempo: Domain.Abilites = new Domain.Abilites(new Domain.Name('マイペース'));
     export var magmaArmor: Domain.Abilites = new Domain.Abilites(new Domain.Name('マグマのよろい'));
     export var defiant: Domain.Abilites = new Domain.Abilites(new Domain.Name('まけんき'));
     export var magicGuard: Domain.Abilites = new Domain.Abilites(new Domain.Name('マジックガード'));
@@ -10420,6 +10420,8 @@ Template['postTpl'].helpers({
     },
 
     abilites: () => {
+        // TODO: 選択されたポケモンのとくせいを表示するようにしたい
+        console.log($('#selectPokemon').val());
         return Dictionary.abilites;
     },
 
@@ -10450,6 +10452,11 @@ Template['postTpl'].events({
             created_at: (new Date()).getTime()
         });
 
+    },
+
+    'change #selectPokemon': () => {
+        console.log('select pokemon changed');
+        //console.log($('#selectPokemon').val());
     }
 
 });

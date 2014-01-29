@@ -4,28 +4,28 @@
     <section class="unit">
     {{#each pokemonList}}
       <article class="cassette" id="{{pokemon.id.value}}">
-      <a href="/pokemon/{{pokemon.id.value}}">
-        <div class="inner">
-          <div class="flexible">
-            <div class="wrap-icon36">
-              <span class="pokemon-sprite no{{pokedexNumber.value}}"></span>
-            </div>
-            <div class="item">
-              <h2 class="media-heading h5">
-                <span>{{pokemon.name.value}}</span>
-                <span class="type-list">
-                  {{#each pokemon.types}}
-                  <span class="type-{{value}}"></span>
-                  {{/each}}
-                </span>
-              </h2>
-              <div class="description ellipsis minor small">
-                {{pokemonMemo.value}}
+        <a href="/pokemon/{{pokemon.id.value}}">
+          <div class="inner">
+            <div class="flexible">
+              <div class="wrap-icon36">
+                <span class="pokemon-sprite no{{pokedexNumber.value}}"></span>
+              </div>
+              <div class="item">
+                <h2 class="media-heading h5">
+                  <span>{{pokemon.name.value}}</span>
+                  <span class="type-list">
+                    {{#each pokemon.types}}
+                    <span class="type-{{value}}"></span>
+                    {{/each}}
+                  </span>
+                </h2>
+                <div class="description ellipsis minor small">
+                  {{pokemonMemo.value}}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
       </article>
       {{/each}}
     </section>
